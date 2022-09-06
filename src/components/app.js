@@ -16,6 +16,7 @@ import { useState } from "react";
 
 export default function App() {
   const [type , setType] = useState("")
+
   return (
     <>
         <BrowserRouter>

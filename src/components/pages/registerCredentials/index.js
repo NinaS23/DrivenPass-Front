@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import Confirmation from "../../shared/modalConfirmation.js";
+import { Link } from "react-router-dom";
 
 export default function RegisterCredentials({ setType }) {
     setType("credenciais")
     const text = "< voltar"
     return (
         <>
-         <Register>cadastro</Register>
+            <Register>cadastro</Register>
             <ContentMenu>
                 <Items>
                     <h3>Título</h3>
@@ -15,7 +16,7 @@ export default function RegisterCredentials({ setType }) {
                 <Items>
                     <h3>URL</h3>
                     <input type="text" placeholder="" />
-                </Items>  
+                </Items>
                 <Items>
                     <h3>Usuário</h3>
                     <input type="text" placeholder="" />
@@ -25,10 +26,12 @@ export default function RegisterCredentials({ setType }) {
                     <input type="text" placeholder="" />
                 </Items>
             </ContentMenu>
-          <Footer>
-              <Voltar>{text}</Voltar>
-              <Confirmation />
-          </Footer>
+            <Footer>
+                <Link to={"/credentials"}>
+                    <Voltar>{text}</Voltar>
+                </Link>
+                <Confirmation />
+            </Footer>
         </>
 
     )

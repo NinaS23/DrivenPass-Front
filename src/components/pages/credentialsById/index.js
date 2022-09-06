@@ -1,6 +1,6 @@
 //import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Confirmation from "../../shared/modalConfirmation.js";
 import Delete from "../../shared/deleIcon.js";
 export default function CredentialById({ setType }) {
     setType("credenciais")
@@ -26,7 +26,9 @@ export default function CredentialById({ setType }) {
                 </div>
             </ContentCredential>
             <Footer>
-                <Voltar>{text}</Voltar>
+            <Link to={"/credentials"}>
+                    <Voltar>{text}</Voltar>
+                </Link>
                 <Delete />
             </Footer>
         </>

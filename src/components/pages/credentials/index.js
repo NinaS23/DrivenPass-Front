@@ -3,8 +3,9 @@ import styled from "styled-components";
 import credentials from "../../../assets/images/credentials.svg";
 import {Link} from "react-router-dom";
 
-export default function Credentials({setType}){
+export default function Credentials({setType,setpathWay}){
     setType("credenciais")
+
 
     return (
         <>

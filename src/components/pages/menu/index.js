@@ -2,8 +2,13 @@ import styled from "styled-components";
 import credentials from "../../../assets/images/credentials.svg";
 import safeNotes from "../../../assets/images/safeNotes.svg";
 import card from "../../../assets/images/card.svg";
+import { Link } from "react-router-dom";
 
-export default function Menu({setType}){
+export default function Menu({setType, pathWay}){
+    let path = ""
+  if(pathWay=== 1){
+      path = "/cadastro-credentials"
+  }
     setType("Minhas senhas")
 
     return (
@@ -38,7 +43,11 @@ export default function Menu({setType}){
                 <Circle><h3>1</h3></Circle>
             </div>
         </ContentMenu>
-        <Plus><h2>+</h2></Plus>
+        <Plus>
+            <Link to={path}>
+            <h2>+</h2>
+            </Link>
+            </Plus>
         </>
 
     )
