@@ -5,44 +5,89 @@ import React, { useState } from 'react';
 
 export default function RegisterCard({ setType }) {
     setType("card")
-    const [selectValue, setSelectValue] = useState(1);
     const list = [
+        {id: 1, name: 'escolha uma opção'},
         {id: 1, name: 'crédito'},
         {id: 2, name: 'débito'},
         {id: 3, name: 'ambos'}
       ];
-    const text = "< voltar"
+    const text = "< voltar";
+    const [disabled, setDisabled] = React.useState(false);//setar true depois
+    const [ cardInfo , setCardInfo] = useState({
+        number: "",
+        name: "",
+        code: "",
+        date: "",
+        password: "",
+        cardType:""
+    });
 
-console.log(selectValue)//pega pelo id e ai da pra fazer uma lógica para quando o valor for 1 o name é crédito
+
+console.log(cardInfo)//pega pelo id e ai da pra fazer uma lógica para quando o valor for 1 o name é crédito
     return (
         <>
             <Register>cadastro</Register>
             <ContentMenu>
                 <Items>
                     <h3>Número do cartão</h3>
-                    <input type="text" placeholder="" />
+                    <input 
+                    type="text" 
+                    placeholder=""
+                    disabled={disabled} 
+                    value={cardInfo.number}
+                    onChange={e => { setCardInfo({ ...cardInfo, number: e.target.value }) }}
+                    />
                 </Items>
                 <Items>
                     <h3>Nome Impresso</h3>
-                    <input type="text" placeholder="" />
+                    <input 
+                    type="text" 
+                    disabled={disabled}
+                    placeholder="" 
+                    value={cardInfo.name}
+                    onChange={e => { setCardInfo({ ...cardInfo, name: e.target.value }) }}
+                    />
                 </Items>
                 <Items>
                     <h3>Código de Segurança</h3>
-                    <input type="text" placeholder="" />
+                    <input 
+                    type="text" 
+                    disabled={disabled}
+                    placeholder="" 
+                    value={cardInfo.code}
+                    onChange={e => { setCardInfo({ ...cardInfo, code: e.target.value }) }}
+                    />
                 </Items>
                 <Items>
                     <h3>data de expiração</h3>
-                    <input type="text" placeholder="" />
+                    <input 
+                    type="text" 
+                    disabled={disabled}
+                    placeholder="" 
+                    value={cardInfo.date}
+                    onChange={e => { setCardInfo({ ...cardInfo, date: e.target.value }) }}
+                    />
                 </Items>
                 <Items>
                     <h3>senha</h3>
-                    <input type="text" placeholder="" />
+                    <input 
+                    type="text" 
+                    disabled={disabled}
+                    placeholder="" 
+                    value={cardInfo.password}
+                    onChange={e => { setCardInfo({ ...cardInfo, password: e.target.value }) }}
+                    />
                 </Items>
                 <Items>
                     <h3>tipo do cartão</h3>
-                    <select value={selectValue} onChange={e => setSelectValue(e.target.value)} name="select" className="inputText">
+                    <select
+                        name="select"
+                        className="inputText"
+                        value={cardInfo.cardType}
+                        onChange={e => { setCardInfo({ ...cardInfo, cardType: e.target.value }) }}
+                    >
                         {list.map((item, index) => (
-                            <option value={item.id}>{item.name}</option>
+                            <option value={item.name}>{item.name}</option>
                         ))}
                     </select>
 
