@@ -10,8 +10,9 @@ div.root {
   *{
     box-sizing: border-box;
       --cor-fundo: #FFFFFF;
+      --cor-preta: #333333
   }
   body {
-    background-color: var(--cor-fundo);
+    background-color: var(--cor-preta);
     color: var(--cor-fundo);
   }
