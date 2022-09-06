@@ -1,29 +1,62 @@
 import styled from "styled-components";
 import Confirmation from "../../shared/modalConfirmation.js";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export default function RegisterCredentials({ setType }) {
     setType("credenciais")
-    const text = "< voltar"
+    const text = "< voltar";
+    const [ credentialsInfo , setCrendetialsInfo] = useState({
+        title: "",
+        url: "",
+        user: "",
+        password: ""
+    });
+    const [disabled, setDisabled] = useState(false);//setar true depois
+
     return (
         <>
             <Register>cadastro</Register>
             <ContentMenu>
                 <Items>
                     <h3>Título</h3>
-                    <input type="text" placeholder="" />
+                    <input 
+                    type="text" 
+                    placeholder="" 
+                    disabled={disabled} 
+                    value={credentialsInfo.title}
+                    onChange={e => { setCrendetialsInfo({ ...credentialsInfo, title: e.target.value }) }}
+                    />
                 </Items>
                 <Items>
                     <h3>URL</h3>
-                    <input type="text" placeholder="" />
+                    <input 
+                    type="text" 
+                    placeholder=""
+                    disabled={disabled} 
+                    value={credentialsInfo.url}
+                    onChange={e => { setCrendetialsInfo({ ...credentialsInfo, url: e.target.value }) }}
+                     />
                 </Items>
                 <Items>
                     <h3>Usuário</h3>
-                    <input type="text" placeholder="" />
+                    <input 
+                    type="text" 
+                    placeholder="" 
+                    disabled={disabled} 
+                    value={credentialsInfo.user}
+                    onChange={e => { setCrendetialsInfo({ ...credentialsInfo, user: e.target.value }) }}
+                    />
                 </Items>
                 <Items>
                     <h3>Senha</h3>
-                    <input type="text" placeholder="" />
+                    <input 
+                    type="text" 
+                    placeholder=""
+                    disabled={disabled}  
+                    value={credentialsInfo.password}
+                    onChange={e => { setCrendetialsInfo({ ...credentialsInfo, password: e.target.value }) }}
+                    />
                 </Items>
             </ContentMenu>
             <Footer>

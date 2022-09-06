@@ -12,7 +12,7 @@ export default function RegisterCard({ setType }) {
         {id: 3, name: 'ambos'}
       ];
     const text = "< voltar";
-    const [disabled, setDisabled] = React.useState(false);//setar true depois
+    const [disabled, setDisabled] = useState(false);//setar true depois
     const [ cardInfo , setCardInfo] = useState({
         number: "",
         name: "",
