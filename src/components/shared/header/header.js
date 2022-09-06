@@ -3,7 +3,7 @@ import styled from "styled-components";
 import lock from "../../../assets/images/lock.svg";
 import out from "../../../assets/images/out.svg";
 
-export default function Header() {
+export default function Header({type}) {
     const location = useLocation();
 
     function canRenderHeader() {
@@ -19,6 +19,7 @@ export default function Header() {
                 </div>
                 <img src={out} alt="cadeado" />
             </HeaderContent>
+            <Status><h3>{type}</h3></Status>
         </>
     ) : null;
 }
@@ -38,6 +39,7 @@ div{
     margin-left: 17%;
     height:60px ;
     width: 45px;
+    margin-bottom: 3%;
   }
     h2{
         margin-top: 7%;
@@ -53,6 +55,25 @@ div{
      letter-spacing: -0.012em;
      color: #005985;
   }
+}
+
+`
+const Status = styled.div`
+width: 100%;
+height: 41px;
+background-color: #005985;
+justify-content: center;
+align-items:center;
+padding-left: 3%;
+padding-top:2%;
+h3{
+    font-family: 'Recursive';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 22px;
+color: #FFFFFF;
+
 }
 
 `
