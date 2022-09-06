@@ -3,7 +3,7 @@ import styled from "styled-components";
 import lock from "../../../assets/images/lock.svg";
 import out from "../../../assets/images/out.svg";
 
-export default function Header({type}) {
+export default function Header({ type }) {
     const location = useLocation();
 
     function canRenderHeader() {
@@ -15,11 +15,13 @@ export default function Header({type}) {
             <HeaderContent>
                 <div>
                     <Link to={"/menu"}>
-                    <img src={lock} alt="cadeado" />
+                        <img src={lock} alt="cadeado" />
                     </Link>
                     <h2>DrivenPass</h2>
                 </div>
-                <img src={out} alt="cadeado" />
+                <Link to={"/"}>
+                    <img src={out} alt="cadeado" />
+                </Link>
             </HeaderContent>
             <Status><h3>{type}</h3></Status>
         </>
