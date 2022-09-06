@@ -2,8 +2,8 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Delete from "../../shared/deleIcon.js";
-export default function CredentialById({ setType }) {
-    setType("credentials")
+export default function SafeNotesById({ setType }) {
+    setType("safeNotes")
     const text = "< voltar"
     //const { id } = useParams();
     return (
@@ -12,21 +12,17 @@ export default function CredentialById({ setType }) {
                 <h3>nome da credencial</h3>
                 <div>
                     <ItemsCredentials>
-                        <h2>URL</h2>
+                        <h2>Titulo</h2>
                         <p>conteudo do titulo referente a credencial</p>
                     </ItemsCredentials>
                     <ItemsCredentials>
-                        <h2>Usuário</h2>
-                        <p>conteudo do titulo referente a credencial</p>
-                    </ItemsCredentials>
-                    <ItemsCredentials>
-                        <h2>Senha</h2>
+                        <h2>Anotação</h2>
                         <p>conteudo do titulo referente a credencial</p>
                     </ItemsCredentials>
                 </div>
             </ContentCredential>
             <Footer>
-            <Link to={"/credentials"}>
+            <Link to={"/safeNotes"}>
                     <Voltar>{text}</Voltar>
                 </Link>
                 <Delete />
@@ -83,6 +79,7 @@ font-style: normal;
 position: absolute;
 bottom:0px;
 font-weight: 400;
+margin-top: 5%;
 font-size: 18px;
 line-height: 22px;
 /* identical to box height */

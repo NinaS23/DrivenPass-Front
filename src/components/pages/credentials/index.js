@@ -11,10 +11,12 @@ export default function Credentials({setType,setpathWay}){
         <>
         <ContentMenu>
             <div>
+            <StyledLink to={"/safeNotes/:id"}>
                 <Items>                
                 <img src={credentials} alt="cadeado" />
                 <h3>credentials</h3>
                 </Items>
+                </StyledLink>
             </div>
             <div>
                 <Items>                
@@ -103,5 +105,8 @@ color: #222222;
 `
 
 
+const StyledLink = styled(Link)`
+text-decoration: none;
+`
 
 

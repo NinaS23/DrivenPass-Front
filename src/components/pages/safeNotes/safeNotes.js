@@ -3,17 +3,19 @@ import styled from "styled-components";
 import safeNotes from "../../../assets/images/safeNotes.svg";
 import {Link} from "react-router-dom";
 
-export default function SafeNotes({setType,setpathWay}){
+export default function SafeNotes({setType}){
     setType("safeNotes")
 
     return (
         <>
         <ContentMenu>
             <div>
+                <StyledLink to={"/safeNotes/:id"}>
                 <Items>                
                 <img src={safeNotes} alt="cadeado" />
                 <h3>safeNotes</h3>
                 </Items>
+                </StyledLink>
             </div>
             <div>
                 <Items>                
@@ -102,5 +104,6 @@ color: #222222;
 `
 
 
-
-
+const StyledLink = styled(Link)`
+text-decoration: none;
+`

@@ -3,13 +3,15 @@ import React from "react";
 
 import Login from "./pages/login/index.js";
 import Credentials from "./pages/credentials/index.js";
-import Cards from "./pages/cards/index.js";
+import Cards from "./pages/cards/index.js"
 import RegisterCredentials from "./pages/registerCredentials/index.js";
 import Signup from "./pages/signup/index.js";
 import Menu from "./pages/menu/index.js";
+import RegisterCard from "./pages/cards/registerCard.js";
 import CredentialById from "./pages/credentialsById/index.js";
 import RegisterSafeNotes from "./pages/safeNotes/index.js";
 import SafeNotes from "./pages/safeNotes/safeNotes.js";
+import SafeNotesById from "./pages/safeNotes/safeNoteById.js";
 
 import Header from "./shared/header/header.js";
 import { useState } from "react";
@@ -32,7 +34,9 @@ export default function App() {
             <Route path="/credentials/:id" element={<CredentialById  setType={setType}/>} />
             <Route path="/cadastro-safeNotes" element={<RegisterSafeNotes  setType={setType}/>} />
             <Route path="/safeNotes" element={<SafeNotes  setType={setType}/>} />
-            <Route path="/card" element={<Cards />} />
+            <Route path="/safeNotes/:id" element={<SafeNotesById  setType={setType}/>} />
+            <Route path="/cards" element={<Cards setType={setType}/>} />
+            <Route path="/cadastro-card" element={<RegisterCard setType={setType}/>} />
           </Routes>
         </BrowserRouter>
     </>

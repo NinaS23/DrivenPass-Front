@@ -205,6 +205,9 @@ const Carregando = styled.div`
 const Plus = styled.div`
 height: 60px;
 width: 60px;
+position: absolute;
+bottom:0px;
+margin-left: 76%;
 background-color:  #F52424;
 border-radius: 50%;
 justify-content:center;
