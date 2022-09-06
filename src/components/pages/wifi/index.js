@@ -10,11 +10,11 @@ export default function RegisterWifi({ setType }) {
             <Register>cadastro</Register>
             <ContentMenu>
                 <Items>
-                    <h3>Titulo</h3>
+                    <h3>Nome da rede</h3>
                     <input type="text" placeholder="" />
                 </Items>
                 <Items>
-                    <h3>Nome da rede</h3>
+                    <h3>Rótulo da rede</h3>
                     <input type="text" placeholder="" />
                 </Items>
                 <Items>
@@ -23,7 +23,7 @@ export default function RegisterWifi({ setType }) {
                 </Items>
             </ContentMenu>
             <Footer>
-                <Link to={"/safeNotes"}>
+                <Link to={"/wifi"}>
                     <Voltar>{text}</Voltar>
                 </Link>
                 <Confirmation />

@@ -9,14 +9,18 @@ export default function WifiById({ setType }) {
     return (
         <>
             <ContentCredential>
-                <h3>nome da credencial</h3>
+                <h3>nome do wifi</h3>
                 <div>
                     <ItemsCredentials>
-                        <h2>Titulo</h2>
+                        <h2>Nome da rede</h2>
                         <p>conteudo do titulo referente a credencial</p>
                     </ItemsCredentials>
                     <ItemsCredentials>
-                        <h2>Anotação</h2>
+                        <h2>Rótulo da rede</h2>
+                        <p>conteudo do titulo referente a credencial</p>
+                    </ItemsCredentials>
+                    <ItemsCredentials>
+                        <h2>Senha</h2>
                         <p>conteudo do titulo referente a credencial</p>
                     </ItemsCredentials>
                 </div>
