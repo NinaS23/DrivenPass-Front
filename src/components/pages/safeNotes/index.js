@@ -1,21 +1,40 @@
 import styled from "styled-components";
 import Confirmation from "../../shared/modalConfirmation.js";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export default function RegisterSafeNotes({ setType }) {
     setType("safeNotes")
-    const text = "< voltar"
+    const text = "< voltar";
+    const [ safeNotesInfo , setSafeNotesInfo] = useState({
+        title: "",
+        note: "",
+    });
+    const [disabled, setDisabled] = useState(false);//setar true depois
+
     return (
         <>
             <Register>cadastro</Register>
             <ContentMenu>
                 <Items>
                     <h3>Título</h3>
-                    <input type="text" placeholder="" />
+                    <input 
+                    type="text" 
+                    placeholder="" 
+                    disabled={disabled} 
+                    value={safeNotesInfo.title}
+                    onChange={e => { setSafeNotesInfo({ ...safeNotesInfo, title: e.target.value }) }}
+                    />
                 </Items>
                 <Items>
                     <h3>Anotação</h3>
-                    <textarea type="text" placeholder="" />
+                    <textarea 
+                    type="text" 
+                    placeholder="" 
+                    disabled={disabled} 
+                    value={safeNotesInfo.note}
+                    onChange={e => { setSafeNotesInfo({ ...safeNotesInfo, note: e.target.value }) }}
+                    />
                 </Items>
             </ContentMenu>
             <Footer>
