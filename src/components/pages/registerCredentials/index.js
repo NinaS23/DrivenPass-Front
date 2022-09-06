@@ -1,9 +1,7 @@
 import styled from "styled-components";
-import { useState } from "react";
 import Confirmation from "../../shared/modalConfirmation.js";
 
 export default function RegisterCredentials({ setType }) {
-    const [isOpen, setIsOpen] = useState(false);
     setType("credenciais")
     const text = "< voltar"
     return (
@@ -63,7 +61,8 @@ div{
 }
 `
 const Footer = styled.div`
-margin-top: 27%;
+ position: absolute;
+bottom:30px;
 width: 100%;
 display: flex;
 padding-left: 5%;
