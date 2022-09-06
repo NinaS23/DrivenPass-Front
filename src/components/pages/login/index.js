@@ -2,6 +2,7 @@ import { MainContent, Title, Inputs, Bar } from "./style";
 import lock from "../../../assets/images/lock.svg";
 import FormsLoginSingin from "../../shared/FormsLoginSigin";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -26,7 +27,9 @@ export default function Login() {
 
             </Inputs>
           <Bar></Bar>
+          <Link to={"/sign-up"}>
           <p>Primeiro acesso? Crie sua conta!</p>
+          </Link>
         </MainContent>
     )
 }
