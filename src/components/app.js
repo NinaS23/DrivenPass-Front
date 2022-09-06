@@ -4,7 +4,7 @@ import React from "react";
 import Login from "./pages/login/index.js";
 import Credentials from "./pages/credentials/index.js";
 import Cards from "./pages/cards/index.js";
-import SafeNotes from "./pages/safeNotes/index.js";
+import RegisterCredentials from "./pages/registerCredentials/index.js";
 import Signup from "./pages/signup/index.js";
 import Menu from "./pages/menu/index.js";
 import Wifi from "./pages/wifi/index.js";
@@ -25,8 +25,9 @@ export default function App() {
             <Route path="/sign-up" element={<Signup />} />
             <Route path="/menu" element={<Menu setType={setType}/>} />
             <Route path="/credentials" element={<Credentials  setType={setType}/>} />
+            <Route path="/cadastro-credentials" element={<RegisterCredentials  setType={setType}/>} />
             <Route path="/card" element={<Cards />} />
-            <Route path="safe-notes" element={<SafeNotes />} />
+            <Route path="safe-notes" element={<registSafeNoteserCredentials />} />
             <Route path="wifi" element={<Wifi />} />
           </Routes>
         </BrowserRouter>

@@ -1,6 +1,7 @@
 
 import styled from "styled-components";
 import credentials from "../../../assets/images/credentials.svg";
+import {Link} from "react-router-dom";
 
 export default function Credentials({setType}){
     setType("credenciais")
@@ -37,9 +38,11 @@ export default function Credentials({setType}){
                 <img src={credentials} alt="cadeado" />
                 <h3>credentials</h3>
                 </Items>
-            </div>
-        </ContentMenu>
-        <Plus><h2>+</h2></Plus>
+                </div>
+            </ContentMenu>
+            <Link to={"/cadastro-credentials"}>
+                <Plus><h2>+</h2></Plus>
+            </Link>
         </>
 
     )
