@@ -6,6 +6,7 @@ import Credentials from "./pages/credentials/index.js";
 import Cards from "./pages/cards/index.js"
 import RegisterCredentials from "./pages/registerCredentials/index.js";
 import Signup from "./pages/signup/index.js";
+import CardById from "./pages/cards/cardById.js";
 import Menu from "./pages/menu/index.js";
 import RegisterCard from "./pages/cards/registerCard.js";
 import CredentialById from "./pages/credentialsById/index.js";
@@ -37,6 +38,7 @@ export default function App() {
             <Route path="/safeNotes/:id" element={<SafeNotesById  setType={setType}/>} />
             <Route path="/cards" element={<Cards setType={setType}/>} />
             <Route path="/cadastro-card" element={<RegisterCard setType={setType}/>} />
+            <Route path="/card/:id" element={<CardById setType={setType}/>} />
           </Routes>
         </BrowserRouter>
     </>

@@ -49,7 +49,7 @@ console.log(selectValue)//pega pelo id e ai da pra fazer uma lógica para quando
                 </Items>
             </ContentMenu>
             <Footer>
-                <Link to={"/credentials"}>
+                <Link to={"/cards"}>
                     <Voltar>{text}</Voltar>
                 </Link>
                 <Confirmation />
