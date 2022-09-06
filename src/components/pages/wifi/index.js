@@ -2,20 +2,24 @@ import styled from "styled-components";
 import Confirmation from "../../shared/modalConfirmation.js";
 import { Link } from "react-router-dom";
 
-export default function RegisterSafeNotes({ setType }) {
-    setType("safeNotes")
+export default function RegisterWifi({ setType }) {
+    setType("wifi")
     const text = "< voltar"
     return (
         <>
             <Register>cadastro</Register>
             <ContentMenu>
                 <Items>
-                    <h3>Título</h3>
+                    <h3>Titulo</h3>
                     <input type="text" placeholder="" />
                 </Items>
                 <Items>
-                    <h3>Anotação</h3>
-                    <textarea type="text" placeholder="" />
+                    <h3>Nome da rede</h3>
+                    <input type="text" placeholder="" />
+                </Items>
+                <Items>
+                    <h3>Senha da rede</h3>
+                    <input type="text" placeholder="" />
                 </Items>
             </ContentMenu>
             <Footer>
@@ -109,5 +113,3 @@ width:338px;
 height: 300px; 
 }
 `
-
-

@@ -1,49 +1,48 @@
 
 import styled from "styled-components";
-import credentials from "../../../assets/images/credentials.svg";
+import safeNotes from "../../../assets/images/safeNotes.svg";
 import {Link} from "react-router-dom";
 
-export default function Credentials({setType,setpathWay}){
-    setType("credenciais")
-
+export default function Wifi({setType}){
+    setType("wifi")
 
     return (
         <>
         <ContentMenu>
             <div>
-            <StyledLink to={"/credentials/:id"}>
+                <StyledLink to={"/wifi/:id"}>
                 <Items>                
-                <img src={credentials} alt="cadeado" />
-                <h3>credentials</h3>
+                <img src={safeNotes} alt="cadeado" />
+                <h3>wifi</h3>
                 </Items>
                 </StyledLink>
             </div>
             <div>
                 <Items>                
-                <img src={credentials} alt="cadeado" />
-                <h3>credentials</h3>
+                <img src={safeNotes} alt="cadeado" />
+                <h3>wifi</h3>
                 </Items>
             </div>
             <div>
                 <Items>                
-                <img src={credentials} alt="cadeado" />
-                <h3>credentials</h3>
+                <img src={safeNotes} alt="cadeado" />
+                <h3>wifi</h3>
                 </Items>
             </div>
             <div>
                 <Items>                
-                <img src={credentials} alt="cadeado" />
-                <h3>credentials</h3>
+                <img src={safeNotes} alt="cadeado" />
+                <h3>wifi</h3>
                 </Items>
             </div>
             <div>
                 <Items>                
-                <img src={credentials} alt="cadeado" />
-                <h3>credentials</h3>
+                <img src={safeNotes} alt="cadeado" />
+                <h3>wifi</h3>
                 </Items>
                 </div>
             </ContentMenu>
-            <Link to={"/cadastro-credentials"}>
+            <Link to={"/cadastro-wifi"}>
                 <Plus><h2>+</h2></Plus>
             </Link>
         </>
@@ -108,5 +107,3 @@ color: #222222;
 const StyledLink = styled(Link)`
 text-decoration: none;
 `
-
-

@@ -38,10 +38,12 @@ export default function Menu({setType, pathWay}){
                     <Circle><h3>1</h3></Circle>
             </div>
             <div>
+            <StyledLink to={"/wifi"}>
                 <Items>                
                 <img src={safeNotes} alt="cadeado" />
-                <h3>credentials</h3>
+                <h3>wifi</h3>
                 </Items>
+                </StyledLink>
                 <Circle><h3>1</h3></Circle>
             </div>
         </ContentMenu>
