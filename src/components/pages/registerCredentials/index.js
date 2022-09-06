@@ -1,8 +1,9 @@
 import styled from "styled-components";
-
+import correct from "../../../assets/images/correct.svg"
 
 export default function RegisterCredentials({ setType }) {
     setType("credenciais")
+    const text = "< voltar"
     return (
         <>
          <Register>cadastro</Register>
@@ -24,7 +25,10 @@ export default function RegisterCredentials({ setType }) {
                     <input type="text" placeholder="" />
                 </Items>
             </ContentMenu>
-            <Plus><h2>+</h2></Plus>
+          <Footer>
+              <Voltar>{text}</Voltar>
+              <img src={correct} alt="" />
+          </Footer>
         </>
 
     )
@@ -56,24 +60,27 @@ div{
     margin-top:5%;
 }
 `
-const Plus = styled.div`
-height: 61px;
-width: 61px;
-background-color:  #005985;
-border-radius: 50%;
-justify-content:center;
-padding-left:4%;
-margin-top:28%;
-h2{
-
+const Footer = styled.div`
+margin-top: 27%;
+width: 100%;
+display: flex;
+padding-left: 5%;
+padding-right: 5%;
+justify-content: space-between;
+`
+const Voltar = styled.h3`
 font-family: 'Recursive';
 font-style: normal;
 font-weight: 400;
-font-size: 48px;
-line-height: 58px;
+margin-top: 5%;
+font-size: 18px;
+line-height: 22px;
 /* identical to box height */
-color: #FFFFFF
-}
+
+text-align: center;
+text-decoration-line: underline;
+
+color: #000000;
 `
 
 const Items = styled.div`
