@@ -1,6 +1,7 @@
 import axios from "axios";
 import Modal from "react-modal";
 import styled from "styled-components";
+import swal from 'sweetalert';
 import { ThreeDots } from "react-loader-spinner";
 import correct from "../../assets/images/correct.svg";
 import {useState} from "react";
@@ -31,8 +32,10 @@ function Confirmation({ postId, token, renderizarPosts, render }) {
     } catch (e) {
       console.log(e);
       modalDinamico();
-      alert("Não foi possível excluir o post");
       setLoading(false);
+      swal( "opsssss",
+       "insira os dados corretamente",
+      "error",) 
     }
   }
 
