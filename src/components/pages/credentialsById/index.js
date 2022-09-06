@@ -39,13 +39,14 @@ display: flex;
 flex-direction: column;
 margin-left: 7%;
 margin-top: 5%;
+width: 100%;
+height: 50px;
 h3{
-    font-family: 'Recursive';
+font-family: 'Recursive';
 font-style: normal;
 font-weight: 400;
 font-size: 20px;
 line-height: 24px;
-
 color: #222222;
 
 }
@@ -90,11 +91,5 @@ color: #000000;
 `
 
 const Footer = styled.div`
- position: absolute;
-bottom:30px;
-width: 100%;
-display: flex;
-padding-left: 5%;
-padding-right:15%;
-justify-content: space-between;
+
 `

@@ -42,7 +42,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 width: 100%;
-height: 100%;
+height: 295px;
 padding-top: 20%;
 
 `
@@ -66,7 +66,7 @@ a{
 `
 
 const Button = styled.button`
-    margin-top:17%;
+    margin-top:20%;
     background-color: #9BFBB0;
     height: 40px;
     width:80%;

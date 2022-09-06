@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 const MainContent = styled.div`
 display: flex;
@@ -26,6 +26,22 @@ color: #000000;
 }
 
 `
+const Button = styled.div`
+    background-color: #FB9B9B;
+    height: 40px;
+    width:63%;
+    border:  none;
+    border-radius: 6px;
+    h3{
+        font-family: 'Recursive';
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+        color:#000000;
+        font-size: 18px;
+    }
+
+`
 
 const Title = styled.h1`
 font-family: 'Righteous';
@@ -43,21 +59,7 @@ color:  #005985;
 const Inputs = styled.div`
 
 `
-const Button = styled.button`
-    background-color: #FB9B9B;
-    height: 40px;
-    width:63%;
-    border:  none;
-    border-radius: 6px;
-    h3{
-        font-family: 'Recursive';
-        font-style: normal;
-        font-weight: 400;
-        line-height: 22px;
-        color:#000000;
-        font-size: 18px;
-    }
-`
+
 
 
 
