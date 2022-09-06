@@ -1,7 +1,9 @@
 import styled from "styled-components";
-import correct from "../../../assets/images/correct.svg"
+import { useState } from "react";
+import Confirmation from "../../shared/modalConfirmation.js";
 
 export default function RegisterCredentials({ setType }) {
+    const [isOpen, setIsOpen] = useState(false);
     setType("credenciais")
     const text = "< voltar"
     return (
@@ -27,7 +29,7 @@ export default function RegisterCredentials({ setType }) {
             </ContentMenu>
           <Footer>
               <Voltar>{text}</Voltar>
-              <img src={correct} alt="" />
+              <Confirmation />
           </Footer>
         </>
 
@@ -65,7 +67,7 @@ margin-top: 27%;
 width: 100%;
 display: flex;
 padding-left: 5%;
-padding-right: 5%;
+padding-right:15%;
 justify-content: space-between;
 `
 const Voltar = styled.h3`
