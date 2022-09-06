@@ -24,7 +24,7 @@ export default function App() {
             <Route path="/" element={<Login/>} />  
             <Route path="/sign-up" element={<Signup />} />
             <Route path="/menu" element={<Menu setType={setType}/>} />
-            <Route path="/credentials" element={<Credentials />} />
+            <Route path="/credentials" element={<Credentials  setType={setType}/>} />
             <Route path="/card" element={<Cards />} />
             <Route path="safe-notes" element={<SafeNotes />} />
             <Route path="wifi" element={<Wifi />} />
