@@ -65,12 +65,15 @@ div{
 overflow-y: hidden;
 `
 const Plus = styled.div`
+position: absolute;
+bottom: 12px;
 height: 61px;
 width: 61px;
 background-color:  #005985;
 border-radius: 50%;
 justify-content:center;
-padding-left:4%;
+margin-left:4%;
+padding-left: 4%;
 margin-top:30%;
 h2{
 

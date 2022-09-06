@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import lock from "../../../assets/images/lock.svg";
 import out from "../../../assets/images/out.svg";
@@ -14,7 +14,9 @@ export default function Header({type}) {
         <>
             <HeaderContent>
                 <div>
+                    <Link to={"/menu"}>
                     <img src={lock} alt="cadeado" />
+                    </Link>
                     <h2>DrivenPass</h2>
                 </div>
                 <img src={out} alt="cadeado" />
