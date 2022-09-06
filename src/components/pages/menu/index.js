@@ -19,13 +19,15 @@ export default function Menu({setType, pathWay}){
                 </StyledLink>
                 <Circle><h3>1</h3></Circle>
             </div>
-            <div>
-                <Items>                
-                <img src={safeNotes} alt="cadeado" />
-                <h3>credentials</h3>
-                </Items>
-                <Circle><h3>1</h3></Circle>
-            </div>
+                <div>
+                    <StyledLink to={"/safeNotes"}>
+                        <Items>
+                            <img src={safeNotes} alt="cadeado" />
+                            <h3>safeNotes</h3>
+                        </Items>
+                    </StyledLink>
+                    <Circle><h3>1</h3></Circle>
+                </div>
             <div>
                 <Items>                
                 <img src={card} alt="cadeado" />
