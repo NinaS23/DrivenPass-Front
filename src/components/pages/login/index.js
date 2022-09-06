@@ -20,7 +20,7 @@ export default function Login() {
                     setEmail={setEmail}
                     password={password}
                     setPassword={setPassword}
-                    LinkTo={"/sign-up"}
+                    LinkTo={"/menu"}
                     TextButton="acessar"
                     TextRedirect="First time? Create an account!"
                 />
