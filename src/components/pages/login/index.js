@@ -15,7 +15,6 @@ export default function Login() {
             <Inputs>
 
                 <FormsLoginSingin
-                    type={false}
                     email={email}
                     setEmail={setEmail}
                     password={password}

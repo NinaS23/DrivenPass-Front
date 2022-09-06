@@ -2,11 +2,9 @@ import styled from "styled-components";
 import { Link } from 'react-router-dom';
 
 export default function FormsLoginSingin({
-    type, sendFormes,
-     name, setName,
+     sendFormes,
      email, setEmail,
      password, setPassword,
-     pictureUrl, setPictureUrl,
      LinkTo, TextRedirect, TextButton,
      disabled, corBackgroundInput
     }){
@@ -22,17 +20,8 @@ export default function FormsLoginSingin({
                 <h3>senha</h3>
                 <Input placeholder="" type="password" required value={password} onChange={e=>setPassword(e.target.value)} disabled={disabled}/>
 
-        {!type ? 
-
-        <></>
-        :
-            <>
-            <input placeholder="usename" type="text" required value={name} onChange={e=>setName(e.target.value)} disabled={disabled}/>
-
-            <input placeholder="picture url" type="text" required value={pictureUrl} onChange={e=>setPictureUrl(e.target.value)} disabled={disabled}/>
-            </>
-        }
        <Button disabled={disabled} corBackgroundInput={corBackgroundInput}><h3>{TextButton}</h3>  </Button>
+       
         </Form>
 
         <RedirectRoute >
