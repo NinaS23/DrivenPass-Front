@@ -1,9 +1,6 @@
 
 import styled from "styled-components";
 import credentials from "../../../assets/images/credentials.svg";
-import safeNotes from "../../../assets/images/safeNotes.svg";
-import card from "../../../assets/images/card.svg";
-
 
 export default function Credentials({setType}){
     setType("credenciais")
