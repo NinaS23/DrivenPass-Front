@@ -4,15 +4,17 @@ import { useState } from "react";
 import { InfinitySpin } from "react-loader-spinner";
 
 export default function FormsLoginSingin({
-  sendFormes, typeRegister,
+  sendFormes, 
+  typeRegister,
+  disabled,
+  loading,
   email, setEmail,
   password, setPassword,
   LinkTo, TextRedirect, TextButton,
-  disabled, corBackgroundInput
 }) {
 
   const text = "< voltar"
-  const [loading, setLoading] = useState(false);
+ 
 
   if (typeRegister === "register")
     return (
@@ -25,7 +27,7 @@ export default function FormsLoginSingin({
           <h3>senha</h3>
           <Input placeholder="" type="password" required value={password} onChange={e => setPassword(e.target.value)} disabled={disabled} />
 
-          <Button disabled={disabled} corBackgroundInput={corBackgroundInput}><h3>{TextButton}</h3>  </Button>
+          <Button disabled={disabled} ><h3>{TextButton}</h3>  </Button>
 
         </Form>
 
@@ -63,7 +65,7 @@ export default function FormsLoginSingin({
           <h3>senha</h3>
           <Input placeholder="" type="password" required value={password} onChange={e => setPassword(e.target.value)} disabled={disabled} />
 
-          <Button disabled={disabled} corBackgroundInput={corBackgroundInput}><h3>{TextButton}</h3>  </Button>
+          <Button disabled={disabled} ><h3>{TextButton}</h3>  </Button>
 
         </Form>
 

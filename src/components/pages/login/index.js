@@ -3,10 +3,46 @@ import lock from "../../../assets/images/lock.svg";
 import FormsLoginSingin from "../../shared/FormsLoginSigin";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [disabled, setDisabled] = useState(false);
+    const [loading, setLoading] = useState(false);
+
+    let navigate = useNavigate();
+
+    async function sendFormes(e) {
+        try {
+            e.preventDefault();
+            setDisabled(true);
+            setLoading(true)
+
+            const body = { email, password };
+          const dataUser =  await axios.post(
+                `http://localhost:6003/sign-in`,
+                body
+            );
+            const token = dataUser.data.token;
+            const userId = dataUser.data.userId;
+
+            localStorage.setItem("token", token);
+            localStorage.setItem("userId", userId);
+            
+            setDisabled(false);
+            setLoading(false)
+            navigate("/menu");
+        } catch (error) {
+            console.log(error)
+            setLoading(false)
+            setDisabled(false);
+            /* alert(error.response.data); */
+        }
+    }
+
+      
     return (
         <MainContent>
             <div>
@@ -17,9 +53,12 @@ export default function Login() {
 
                 <FormsLoginSingin
                     email={email}
+                    sendFormes={sendFormes}
                     setEmail={setEmail}
+                    disabled={disabled}
                     password={password}
                     setPassword={setPassword}
+                    loading={loading}
                     LinkTo={"/menu"}
                     typeRegister={"login"}
                     TextButton="acessar"
