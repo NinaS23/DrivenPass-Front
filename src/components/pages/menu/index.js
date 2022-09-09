@@ -70,18 +70,14 @@ div{
 }
 `
 const Plus = styled.div`
-position: absolute;
-bottom: 12px;
-height: 61px;
-width: 61px;
-background-color:  #005985;
-border-radius: 50%;
-justify-content:center;
-margin-left:4%;
-padding-left: 4%;
-margin-top:30%;
+position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #005985;
+  color: white;
+  text-align: center;
 h2{
-
 font-family: 'Recursive';
 font-style: normal;
 font-weight: 400;
