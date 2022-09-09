@@ -2,17 +2,17 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
 
 import Login from "./pages/login/index.js";
-import Credentials from "./pages/credentials/index.js";
+import Credentials from "./pages/credentials/credentials";
 import Cards from "./pages/cards/index.js"
 import Wifi from "./pages/wifi/wifi.js"
 import RegisterWifi from "./pages/wifi/index.js";
 import WifiById from "./pages/wifi/wifiById.js";
-import RegisterCredentials from "./pages/registerCredentials/index.js";
+import RegisterCredentials from "./pages/credentials/registerCredential.js";
 import Signup from "./pages/signup/index.js";
 import CardById from "./pages/cards/cardById.js";
 import Menu from "./pages/menu/index.js";
 import RegisterCard from "./pages/cards/registerCard.js";
-import CredentialById from "./pages/credentialsById/index.js";
+import CredentialById from "./pages/credentials/credentialById.js";
 import RegisterSafeNotes from "./pages/safeNotes/index.js";
 import SafeNotes from "./pages/safeNotes/safeNotes.js";
 import SafeNotesById from "./pages/safeNotes/safeNoteById.js";
