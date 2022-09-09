@@ -11,14 +11,21 @@ export default function RegisterCard({ setType }) {
         {id: 2, name: 'débito'},
         {id: 3, name: 'ambos'}
       ];
+      const isVirtual = [
+        {id: 1, name: 'escolha uma opção'},
+        {id: 1, name: 'sim'},
+        {id: 2, name: 'não'}
+      ];
     const text = "< voltar";
     const [disabled, setDisabled] = useState(false);//setar true depois
     const [ cardInfo , setCardInfo] = useState({
         number: "",
         name: "",
+        title:"",
         code: "",
         date: "",
         password: "",
+        isVirtual:"",
         cardType:""
     });
 
@@ -46,6 +53,16 @@ console.log(cardInfo)//pega pelo id e ai da pra fazer uma lógica para quando o 
                     placeholder="" 
                     value={cardInfo.name}
                     onChange={e => { setCardInfo({ ...cardInfo, name: e.target.value }) }}
+                    />
+                </Items>
+                <Items>
+                    <h3>titulo do cartão</h3>
+                    <input 
+                    type="text" 
+                    disabled={disabled}
+                    placeholder="" 
+                    value={cardInfo.title}
+                    onChange={e => { setCardInfo({ ...cardInfo, title: e.target.value }) }}
                     />
                 </Items>
                 <Items>
@@ -87,6 +104,20 @@ console.log(cardInfo)//pega pelo id e ai da pra fazer uma lógica para quando o 
                         onChange={e => { setCardInfo({ ...cardInfo, cardType: e.target.value }) }}
                     >
                         {list.map((item, index) => (
+                            <option value={item.name}>{item.name}</option>
+                        ))}
+                    </select>
+
+                </Items>
+                <Items>
+                    <h3>o cartão é virtual</h3>
+                    <select
+                        name="select"
+                        className="inputText"
+                        value={cardInfo.isVirtual}
+                        onChange={e => { setCardInfo({ ...cardInfo, isVirtual: e.target.value }) }}
+                    >
+                        {isVirtual.map((item, index) => (
                             <option value={item.name}>{item.name}</option>
                         ))}
                     </select>
