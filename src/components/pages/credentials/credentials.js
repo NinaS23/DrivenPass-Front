@@ -2,46 +2,61 @@
 import styled from "styled-components";
 import credentials from "../../../assets/images/credentials.svg";
 import {Link} from "react-router-dom";
+import { useEffect } from "react";
+import axios from "axios";
+import swal from "sweetalert";
+import { useState } from "react";
 
-export default function Credentials({setType,setpathWay}){
+export default function Credentials({setType}){
     setType("credenciais")
+    const [data,setData] = useState([])
+    const [length,setLength] = useState(0)
+    const token = localStorage.getItem("token");
+    async function getCredentials() {
+   
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        };
 
+        axios
+            .get(`http://localhost:6003/credentials`,config)
+            .then(({ data }) => {
+                setData(data)
+                setLength(data.length)
+            })
+            .catch((error) => {
+                swal(error.response.data, error.response.data, "error")
+            });
+    }
+    useEffect(() => {
+        getCredentials()
+      }, [length]);
+    
 
+    function Credential({title}) {
+        return (
+            <div>
+            <StyledLink to={"/credentials/:id"}>
+                <Items>
+                    <img src={credentials} alt="cadeado" />
+                    <h3>{title}</h3>
+                </Items>
+            </StyledLink>
+            </div>
+        )
+}
     return (
         <>
         <ContentMenu>
-            <div>
-            <StyledLink to={"/credentials/:id"}>
-                <Items>                
-                <img src={credentials} alt="cadeado" />
-                <h3>credentials</h3>
-                </Items>
-                </StyledLink>
-            </div>
-            <div>
-                <Items>                
-                <img src={credentials} alt="cadeado" />
-                <h3>credentials</h3>
-                </Items>
-            </div>
-            <div>
-                <Items>                
-                <img src={credentials} alt="cadeado" />
-                <h3>credentials</h3>
-                </Items>
-            </div>
-            <div>
-                <Items>                
-                <img src={credentials} alt="cadeado" />
-                <h3>credentials</h3>
-                </Items>
-            </div>
-            <div>
-                <Items>                
-                <img src={credentials} alt="cadeado" />
-                <h3>credentials</h3>
-                </Items>
-                </div>
+        {data.length === 0 ? (
+          <p>Não há hashtags cadastradas</p>
+        ) : (
+          data.map((e, index) => (
+            <Credential key={index} title={e.title} />
+          ))
+        )}
             </ContentMenu>
             <Link to={"/cadastro-credentials"}>
                 <Plus><h2>+</h2></Plus>

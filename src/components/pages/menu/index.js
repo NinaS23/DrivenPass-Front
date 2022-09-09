@@ -4,7 +4,7 @@ import safeNotes from "../../../assets/images/safeNotes.svg";
 import card from "../../../assets/images/card.svg";
 import { Link } from "react-router-dom";
 
-export default function Menu({setType, pathWay}){
+export default function Menu({setType}){
     setType("Minhas senhas")
 
     return (
