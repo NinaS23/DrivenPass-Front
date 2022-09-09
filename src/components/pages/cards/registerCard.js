@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 
 export default function RegisterCard({ setType }) {
     setType("card")
+    let typeCard = ""
     const list = [
         {id: 1, name: 'escolha uma opção'},
         {id: 1, name: 'crédito'},
@@ -28,7 +29,14 @@ export default function RegisterCard({ setType }) {
         isVirtual:"",
         type:""
     });
-
+if(cardInfo.type === "crédito"){
+    typeCard = "credit"
+}else if(cardInfo.type === "débito"){
+    typeCard = "debit"
+}else{
+    typeCard = "debitAndCredit"
+}
+console.log(typeCard)
 
 console.log(cardInfo)//pega pelo id e ai da pra fazer uma lógica para quando o valor for 1 o name é crédito
     return (
