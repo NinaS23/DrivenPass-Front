@@ -48,7 +48,7 @@ export default function Menu({setType, pathWay}){
             </div>
         </ContentMenu>
         <Plus>
-            <h2>+</h2>
+            <h4>DrivenPass</h4>
             </Plus>
         </>
 
@@ -77,11 +77,11 @@ position: fixed;
   background-color: #005985;
   color: white;
   text-align: center;
-h2{
+h4{
 font-family: 'Recursive';
 font-style: normal;
 font-weight: 400;
-font-size: 48px;
+font-size: 20px;
 line-height: 58px;
 /* identical to box height */
 color: #FFFFFF
