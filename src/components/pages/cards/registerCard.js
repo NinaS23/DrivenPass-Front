@@ -19,14 +19,14 @@ export default function RegisterCard({ setType }) {
     const text = "< voltar";
     const [disabled, setDisabled] = useState(false);//setar true depois
     const [ cardInfo , setCardInfo] = useState({
-        number: "",
+        number_card: "",
         name: "",
         title:"",
-        code: "",
-        date: "",
+        CVC: "",
+        expirationDate: "",
         password: "",
         isVirtual:"",
-        cardType:""
+        type:""
     });
 
 
@@ -41,8 +41,8 @@ console.log(cardInfo)//pega pelo id e ai da pra fazer uma lógica para quando o 
                     type="text" 
                     placeholder=""
                     disabled={disabled} 
-                    value={cardInfo.number}
-                    onChange={e => { setCardInfo({ ...cardInfo, number: e.target.value }) }}
+                    value={cardInfo.number_card}
+                    onChange={e => { setCardInfo({ ...cardInfo, number_card: e.target.value }) }}
                     />
                 </Items>
                 <Items>
@@ -71,8 +71,8 @@ console.log(cardInfo)//pega pelo id e ai da pra fazer uma lógica para quando o 
                     type="text" 
                     disabled={disabled}
                     placeholder="" 
-                    value={cardInfo.code}
-                    onChange={e => { setCardInfo({ ...cardInfo, code: e.target.value }) }}
+                    value={cardInfo.CVC}
+                    onChange={e => { setCardInfo({ ...cardInfo, CVC: e.target.value }) }}
                     />
                 </Items>
                 <Items>
@@ -81,8 +81,8 @@ console.log(cardInfo)//pega pelo id e ai da pra fazer uma lógica para quando o 
                     type="text" 
                     disabled={disabled}
                     placeholder="" 
-                    value={cardInfo.date}
-                    onChange={e => { setCardInfo({ ...cardInfo, date: e.target.value }) }}
+                    value={cardInfo.expirationDate}
+                    onChange={e => { setCardInfo({ ...cardInfo, expirationDate: e.target.value }) }}
                     />
                 </Items>
                 <Items>
@@ -100,8 +100,8 @@ console.log(cardInfo)//pega pelo id e ai da pra fazer uma lógica para quando o 
                     <select
                         name="select"
                         className="inputText"
-                        value={cardInfo.cardType}
-                        onChange={e => { setCardInfo({ ...cardInfo, cardType: e.target.value }) }}
+                        value={cardInfo.type}
+                        onChange={e => { setCardInfo({ ...cardInfo, type: e.target.value }) }}
                     >
                         {list.map((item, index) => (
                             <option value={item.name}>{item.name}</option>
