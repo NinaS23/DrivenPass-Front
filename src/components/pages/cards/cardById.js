@@ -20,6 +20,10 @@ export default function CardById({ setType }) {
                         <p>conteudo do titulo referente a credencial</p>
                     </ItemsCredentials>
                     <ItemsCredentials>
+                        <h2>titulo do cartão</h2>
+                        <p>conteudo do titulo referente a credencial</p>
+                    </ItemsCredentials>
+                    <ItemsCredentials>
                         <h2>Código de Segurança</h2>
                         <p>conteudo do titulo referente a credencial</p>
                     </ItemsCredentials>
@@ -33,6 +37,10 @@ export default function CardById({ setType }) {
                     </ItemsCredentials>
                     <ItemsCredentials>
                         <h2>tipo do cartão</h2>
+                        <p>conteudo do titulo referente a credencial</p>
+                    </ItemsCredentials>
+                    <ItemsCredentials>
+                        <h2>virtual</h2>
                         <p>conteudo do titulo referente a credencial</p>
                     </ItemsCredentials>
                 </div>
@@ -64,6 +72,8 @@ line-height: 24px;
 color: #222222;
 
 }
+
+
 `
 
 const ItemsCredentials = styled.div`
@@ -107,5 +117,13 @@ color: #000000;
 
 const Footer = styled.div`
 display: flex;
+position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #FFFFFF;
+  color: white;
+  text-align: center;
+  height: 10%;
 
 `
