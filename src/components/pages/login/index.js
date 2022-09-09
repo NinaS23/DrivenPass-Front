@@ -5,12 +5,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import swal from "sweetalert";
 
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [disabled, setDisabled] = useState(false);
     const [loading, setLoading] = useState(false);
+
 
     let navigate = useNavigate();
 
@@ -19,6 +21,7 @@ export default function Login() {
             e.preventDefault();
             setDisabled(true);
             setLoading(true)
+            
 
             const body = { email, password };
           const dataUser =  await axios.post(
@@ -30,7 +33,9 @@ export default function Login() {
 
             localStorage.setItem("token", token);
             localStorage.setItem("userId", userId);
-            
+
+            setEmail("")
+            setPassword("")
             setDisabled(false);
             setLoading(false)
             navigate("/menu");
@@ -38,7 +43,7 @@ export default function Login() {
             console.log(error)
             setLoading(false)
             setDisabled(false);
-            /* alert(error.response.data); */
+            swal(error.response.data , error.response.data , "error")
         }
     }
 
