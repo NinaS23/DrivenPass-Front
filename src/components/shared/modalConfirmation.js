@@ -5,18 +5,23 @@ import swal from 'sweetalert';
 import { ThreeDots } from "react-loader-spinner";
 import correct from "../../assets/images/correct.svg";
 import {useState} from "react";
+import { useNavigate } from "react-router-dom";
 
 Modal.setAppElement(".root");
 
-function Confirmation({ postId, token, renderizarPosts, render }) {
+function Confirmation({ pathBack,body,setDisabled,pathFront }) {
   const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate()
+  const token = localStorage.getItem("token");
 
   function modalDinamico() {
     setIsOpen(!isOpen);
   }
 
-  async function deletePost() {
+  async function register() {
+    console.log(body,pathBack)
+    setDisabled(true)
     setLoading(true);
     try {
       const config = {
@@ -24,15 +29,18 @@ function Confirmation({ postId, token, renderizarPosts, render }) {
           Authorization: `Bearer ${token}`,
         },
       };
+      
 
-      await axios.delete(`https://linkr-driven-16.herokuapp.com/post/${postId}`, config);
+      await axios.post(`http://localhost:6003${pathBack}`,body, config);
       setLoading(false);
+      setDisabled(false)
       modalDinamico();
-      renderizarPosts();
+      navigate(pathFront)
     } catch (e) {
       console.log(e);
       modalDinamico();
-      setLoading(false);
+      setDisabled(false)
+      setLoading(false)
       swal( "opsssss",
        "insira os dados corretamente",
       "error",) 
@@ -65,7 +73,7 @@ function Confirmation({ postId, token, renderizarPosts, render }) {
               <ThreeDots color="#FFFFFF" width={50} />
             </Carregando>
           ) : (
-            <button className="deletar" onClick={deletePost}>
+            <button className="deletar" onClick={register}>
               Yes
             </button>
           )}

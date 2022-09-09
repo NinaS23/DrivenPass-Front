@@ -2,6 +2,9 @@ import styled from "styled-components";
 import Confirmation from "../../shared/modalConfirmation.js";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import axios from "axios";
+import swal from "sweetalert";
+
 
 export default function RegisterCredentials({ setType }) {
     setType("credenciais")
@@ -12,7 +15,13 @@ export default function RegisterCredentials({ setType }) {
         user: "",
         password: ""
     });
-    const [disabled, setDisabled] = useState(false);//setar true depois
+    const [disabled, setDisabled] = useState(false);
+    const body={
+        username:credentialsInfo.user,
+        password:credentialsInfo.password,
+        title:credentialsInfo.title,
+        url:credentialsInfo.url
+    }
 
     return (
         <>
@@ -63,7 +72,12 @@ export default function RegisterCredentials({ setType }) {
                 <Link to={"/credentials"}>
                     <Voltar>{text}</Voltar>
                 </Link>
-                <Confirmation />
+                <Confirmation 
+                body={body}
+                pathBack={'/register-credential'}
+                setDisabled={setDisabled}
+                pathFront={'/credentials'}
+                />
             </Footer>
         </>
 
