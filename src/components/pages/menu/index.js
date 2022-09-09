@@ -2,6 +2,7 @@ import styled from "styled-components";
 import credentials from "../../../assets/images/credentials.svg";
 import safeNotes from "../../../assets/images/safeNotes.svg";
 import card from "../../../assets/images/card.svg";
+import wifi from "../../../assets/images/wifi.svg";
 import { Link } from "react-router-dom";
 
 export default function Menu({setType}){
@@ -40,7 +41,7 @@ export default function Menu({setType}){
             <div>
             <StyledLink to={"/wifi"}>
                 <Items>                
-                <img src={safeNotes} alt="cadeado" />
+                <img src={wifi} alt="cadeado" />
                 <h3>wifi</h3>
                 </Items>
                 </StyledLink>

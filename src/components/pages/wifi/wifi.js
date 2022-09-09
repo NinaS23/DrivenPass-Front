@@ -1,6 +1,6 @@
 
 import styled from "styled-components";
-import safeNotes from "../../../assets/images/safeNotes.svg";
+import wifi from "../../../assets/images/wifi.svg";
 import {Link} from "react-router-dom";
 
 export default function Wifi({setType}){
@@ -12,32 +12,32 @@ export default function Wifi({setType}){
             <div>
                 <StyledLink to={"/wifi/:id"}>
                 <Items>                
-                <img src={safeNotes} alt="cadeado" />
+                <img src={wifi} alt="cadeado" />
                 <h3>wifi</h3>
                 </Items>
                 </StyledLink>
             </div>
             <div>
                 <Items>                
-                <img src={safeNotes} alt="cadeado" />
+                <img src={wifi} alt="cadeado" />
                 <h3>wifi</h3>
                 </Items>
             </div>
             <div>
                 <Items>                
-                <img src={safeNotes} alt="cadeado" />
+                <img src={wifi} alt="cadeado" />
                 <h3>wifi</h3>
                 </Items>
             </div>
             <div>
                 <Items>                
-                <img src={safeNotes} alt="cadeado" />
+                <img src={wifi} alt="cadeado" />
                 <h3>wifi</h3>
                 </Items>
             </div>
             <div>
                 <Items>                
-                <img src={safeNotes} alt="cadeado" />
+                <img src={wifi} alt="cadeado" />
                 <h3>wifi</h3>
                 </Items>
                 </div>
