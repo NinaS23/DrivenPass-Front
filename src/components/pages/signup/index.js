@@ -1,8 +1,8 @@
-import { MainContent, Button, Title, Inputs } from "./style";
+import { MainContent, Title, Inputs } from "./style";
 import lock from "../../../assets/images/lock.svg";
 import FormsLoginSingin from "../../shared/FormsLoginSigin";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+
 
 
 export default function Signup(){

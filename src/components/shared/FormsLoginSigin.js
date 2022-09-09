@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
 import { useState } from "react";
+import { InfinitySpin } from "react-loader-spinner";
 
 export default function FormsLoginSingin({
   sendFormes, typeRegister,
@@ -11,6 +12,7 @@ export default function FormsLoginSingin({
 }) {
 
   const text = "< voltar"
+  const [loading, setLoading] = useState(false);
 
   if (typeRegister === "register")
     return (
@@ -28,10 +30,18 @@ export default function FormsLoginSingin({
         </Form>
 
         <RedirectRoute >
-
-          <Link to={LinkTo}>
-            <h1>{TextRedirect}</h1>
-          </Link>
+          {loading ? (
+            <div>
+              <InfinitySpin
+                width='200'
+                color="#4fa94d"
+              />
+            </div>
+          ) : (
+            <Link to={LinkTo}>
+              <h1>{TextRedirect}</h1>
+            </Link>
+          )}
           <ButtonBack >
             <StyledLink to={"/"}>
               <h3>{text}</h3>
@@ -58,15 +68,23 @@ export default function FormsLoginSingin({
         </Form>
 
         <RedirectRoute >
-
-          <Link to={LinkTo}>
-            <h1>{TextRedirect}</h1>
-          </Link>
+          {loading ? (
+            <div>
+              <InfinitySpin
+                width='200'
+                color="#4fa94d"
+              />
+            </div>
+          ) : (
+            <Link to={LinkTo}>
+              <h1>{TextRedirect}</h1>
+            </Link>
+          )}
         </RedirectRoute>
 
 
       </>
-      )
+    )
   }
 }
 
