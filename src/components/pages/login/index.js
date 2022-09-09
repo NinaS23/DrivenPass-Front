@@ -21,6 +21,7 @@ export default function Login() {
                     password={password}
                     setPassword={setPassword}
                     LinkTo={"/menu"}
+                    typeRegister={"login"}
                     TextButton="acessar"
                     TextRedirect="First time? Create an account!"
                 />

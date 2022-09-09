@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 export default function Signup(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const text = "< voltar"
     return(
         <MainContent>
         <div>
@@ -22,17 +21,13 @@ export default function Signup(){
                 setEmail={setEmail}
                 password={password}
                     setPassword={setPassword}
+                    typeRegister={"register"}
                     LinkTo={"/"}
                     TextButton="criar"
                     TextRedirect="First time? Create an account!"
                 />
             </Inputs>
 
-            <Button>
-                <Link to={"/"}>
-                    <h3>{text}</h3>
-                </Link>
-            </Button>
         </MainContent>
     )
 }

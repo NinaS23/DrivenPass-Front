@@ -1,39 +1,73 @@
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
+import { useState } from "react";
 
 export default function FormsLoginSingin({
-     sendFormes,
-     email, setEmail,
-     password, setPassword,
-     LinkTo, TextRedirect, TextButton,
-     disabled, corBackgroundInput
-    }){
+  sendFormes, typeRegister,
+  email, setEmail,
+  password, setPassword,
+  LinkTo, TextRedirect, TextButton,
+  disabled, corBackgroundInput
+}) {
 
+  const text = "< voltar"
 
-    return(
+  if (typeRegister === "register")
+    return (
       <>
         <Form onSubmit={sendFormes}>
- 
-                <h3>Usuário (e-mail)</h3>
-                <Input placeholder="" type="email" required value={email} onChange={e => setEmail(e.target.value)} disabled={disabled} />
 
-                <h3>senha</h3>
-                <Input placeholder="" type="password" required value={password} onChange={e=>setPassword(e.target.value)} disabled={disabled}/>
+          <h3>Usuário (e-mail)</h3>
+          <Input placeholder="" type="email" required value={email} onChange={e => setEmail(e.target.value)} disabled={disabled} />
 
-       <Button disabled={disabled} corBackgroundInput={corBackgroundInput}><h3>{TextButton}</h3>  </Button>
-       
+          <h3>senha</h3>
+          <Input placeholder="" type="password" required value={password} onChange={e => setPassword(e.target.value)} disabled={disabled} />
+
+          <Button disabled={disabled} corBackgroundInput={corBackgroundInput}><h3>{TextButton}</h3>  </Button>
+
         </Form>
 
         <RedirectRoute >
-       
-        <Link to={LinkTo}>
-          <h1>{TextRedirect}</h1>
-        </Link>
+
+          <Link to={LinkTo}>
+            <h1>{TextRedirect}</h1>
+          </Link>
+          <ButtonBack >
+            <StyledLink to={"/"}>
+              <h3>{text}</h3>
+            </StyledLink>
+          </ButtonBack>
         </RedirectRoute>
 
 
       </>
     )
+  if (typeRegister === "login") {
+    return (
+      <>
+        <Form onSubmit={sendFormes}>
+
+          <h3>Usuário (e-mail)</h3>
+          <Input placeholder="" type="email" required value={email} onChange={e => setEmail(e.target.value)} disabled={disabled} />
+
+          <h3>senha</h3>
+          <Input placeholder="" type="password" required value={password} onChange={e => setPassword(e.target.value)} disabled={disabled} />
+
+          <Button disabled={disabled} corBackgroundInput={corBackgroundInput}><h3>{TextButton}</h3>  </Button>
+
+        </Form>
+
+        <RedirectRoute >
+
+          <Link to={LinkTo}>
+            <h1>{TextRedirect}</h1>
+          </Link>
+        </RedirectRoute>
+
+
+      </>
+      )
+  }
 }
 
 
@@ -55,6 +89,7 @@ const Input = styled.input`
 `
 const RedirectRoute = styled.div`
 a{
+  justify-content: center;
   color: #FFFFFF;
   font-size: 20px;
   font-weight: 300;
@@ -80,4 +115,26 @@ const Button = styled.button`
         color:#000000;
         font-size: 18px;
     }
+`
+const ButtonBack = styled.div`
+    background-color: #FB9B9B;
+    height: 40px;
+    width:80%;
+    border:  none;
+    border-radius: 6px;
+    margin-left: 10%;
+    h3{
+        font-family: 'Recursive';
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+        color:#000000;
+        font-size: 18px;
+    }
+
+`
+
+const StyledLink = styled(Link)`
+text-decoration: none;
+text-align: center;
 `
