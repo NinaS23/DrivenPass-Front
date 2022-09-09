@@ -6,51 +6,57 @@ import React, { useState } from 'react';
 export default function RegisterCard({ setType }) {
     setType("card")
     let typeCard = ""
+    let isVirtualCard;
     const list = [
-        {id: 1, name: 'escolha uma opção'},
-        {id: 1, name: 'crédito'},
-        {id: 2, name: 'débito'},
-        {id: 3, name: 'ambos'}
-      ];
-      const isVirtual = [
-        {id: 1, name: 'escolha uma opção'},
-        {id: 1, name: 'sim'},
-        {id: 2, name: 'não'}
-      ];
+        { id: 1, name: 'escolha uma opção' },
+        { id: 1, name: 'crédito' },
+        { id: 2, name: 'débito' },
+        { id: 3, name: 'ambos' }
+    ];
+    const isVirtual = [
+        { id: 1, name: 'escolha uma opção' },
+        { id: 1, name: 'sim' },
+        { id: 2, name: 'não' }
+    ];
     const text = "< voltar";
     const [disabled, setDisabled] = useState(false);//setar true depois
-    const [ cardInfo , setCardInfo] = useState({
+    const [cardInfo, setCardInfo] = useState({
         number_card: "",
         name: "",
-        title:"",
+        title: "",
         CVC: "",
         expirationDate: "",
         password: "",
-        isVirtual:"",
-        type:""
+        isVirtual: "",
+        type: ""
     });
-if(cardInfo.type === "crédito"){
-    typeCard = "credit"
-}else if(cardInfo.type === "débito"){
-    typeCard = "debit"
-}else{
-    typeCard = "debitAndCredit"
-}
-console.log(typeCard)
+    if (cardInfo.type === "crédito") {
+        typeCard = "credit"
+    } else if (cardInfo.type === "débito") {
+        typeCard = "debit"
+    } else {
+        typeCard = "debitAndCredit"
+    }
+    console.log(typeCard)
 
-console.log(cardInfo)//pega pelo id e ai da pra fazer uma lógica para quando o valor for 1 o name é crédito
+    if (cardInfo.isVirtual === "sim") {
+        isVirtualCard = true
+    } else {
+        isVirtualCard = false
+    }
+    console.log(isVirtualCard)
     return (
         <>
             <Register>cadastro</Register>
             <ContentMenu>
                 <Items>
                     <h3>Número do cartão</h3>
-                    <input 
-                    type="text" 
-                    placeholder=""
-                    disabled={disabled} 
-                    value={cardInfo.number_card}
-                    onChange={e => { setCardInfo({ ...cardInfo, number_card: e.target.value }) }}
+                    <input
+                        type="text"
+                        placeholder=""
+                        disabled={disabled}
+                        value={cardInfo.number_card}
+                        onChange={e => { setCardInfo({ ...cardInfo, number_card: e.target.value }) }}
                     />
                 </Items>
                 <Items>
