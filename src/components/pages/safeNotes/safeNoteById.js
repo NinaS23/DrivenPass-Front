@@ -1,23 +1,49 @@
-//import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Delete from "../../shared/deleIcon.js";
+import swal from "sweetalert";
+import axios from "axios";
+import { useState, useEffect } from "react";
+
 export default function SafeNotesById({ setType }) {
     setType("safeNotes")
     const text = "< voltar"
-    //const { id } = useParams();
+    const { id } = useParams();
+    const [data, setData] = useState([])
+    const token = localStorage.getItem("token");
+    async function getCredential() {
+
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        };
+
+        axios
+            .get(`http://localhost:6003/safeNote/${id}`, config)
+            .then(({ data }) => {
+                setData(data)
+            })
+            .catch((error) => {
+                swal(error.response.data, error.response.data, "error")
+            });
+    }
+    useEffect(() => {
+        getCredential()
+    }, []);
     return (
         <>
             <ContentCredential>
-                <h3>nome da credencial</h3>
+                <h3>{data.title}</h3>
                 <div>
                     <ItemsCredentials>
                         <h2>Titulo</h2>
-                        <p>conteudo do titulo referente a credencial</p>
+                        <p>{data.title}</p>
                     </ItemsCredentials>
                     <ItemsCredentials>
                         <h2>Anotação</h2>
-                        <p>conteudo do titulo referente a credencial</p>
+                        <Note>{data.note}</Note>
                     </ItemsCredentials>
                 </div>
             </ContentCredential>
@@ -48,6 +74,10 @@ line-height: 24px;
 color: #222222;
 
 }
+`
+const Note = styled.div`
+width:338px;
+height: 300px; 
 `
 
 const ItemsCredentials = styled.div`
