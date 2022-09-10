@@ -54,7 +54,7 @@ export default function CardById({ setType }) {
     return (
         <>
             <ContentCredential>
-                <h3>cartão</h3>
+                <h3>{data.title}</h3>
                 <div>
                     <ItemsCredentials>
                         <h2>Número do cartão</h2>
@@ -94,7 +94,11 @@ export default function CardById({ setType }) {
             <Link to={"/cards"}>
                     <Voltar>{text}</Voltar>
                 </Link>
-                <Delete />
+                <Delete
+                    id={data.id}
+                    pathBack={"/cards"}
+                    pathFront={"/cards"}
+                />
             </Footer>
         </>
 
