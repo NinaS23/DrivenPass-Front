@@ -45,6 +45,16 @@ export default function RegisterCard({ setType }) {
         isVirtualCard = false
     }
     console.log(isVirtualCard)
+    const body ={
+        number_card:cardInfo.number_card,
+        name:cardInfo.name,
+        title:cardInfo.title,
+        CVC:cardInfo.CVC,
+        expirationDate:cardInfo.expirationDate,
+        password:cardInfo.password,
+        isVirtual:isVirtualCard,
+        type:typeCard
+    }
     return (
         <>
             <Register>cadastro</Register>
@@ -142,7 +152,12 @@ export default function RegisterCard({ setType }) {
                 <Link to={"/cards"}>
                     <Voltar>{text}</Voltar>
                 </Link>
-                <Confirmation />
+                <Confirmation
+                    body={body}
+                    pathBack={'/card'}
+                    setDisabled={setDisabled}
+                    pathFront={'/cards'}
+                />
             </Footer>
         </>
 
