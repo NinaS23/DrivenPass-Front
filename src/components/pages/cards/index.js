@@ -2,44 +2,60 @@
 import styled from "styled-components";
 import card from "../../../assets/images/card.svg";
 import {Link} from "react-router-dom";
+import { useEffect } from "react";
+import axios from "axios";
+import swal from "sweetalert";
+import { useState } from "react";
 
 export default function Cards({setType,setpathWay}){
     setType("cards")
+    const [data,setData] = useState([])
+    const [length,setLength] = useState(0)
+    const token = localStorage.getItem("token");
+    async function getCards() {
+   
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        };
+
+        axios
+            .get(`http://localhost:6003/cards`,config)
+            .then(({ data }) => {
+                setData(data)
+                setLength(data.length)
+            })
+            .catch((error) => {
+                swal(error.response.data, error.response.data, "error")
+            });
+    }
+    useEffect(() => {
+        getCards()
+      }, [length]);
+      console.log(data)
+    function Card({title,cardId}) {
+        return (
+            <div>
+                <StyledLink to={`/card/${cardId}`}>
+                    <Items>
+                        <img src={card} alt="cadeado" />
+                        <h3>{title}</h3>
+                    </Items>
+                </StyledLink>
+            </div>
+        )
+    }
     return (
         <>
         <ContentMenu>
-            <div>
-            <StyledLink to={"/card/:id"}>
-                <Items>                
-                <img src={card} alt="cadeado" />
-                <h3>card</h3>
-                </Items>
-                </StyledLink>
-            </div>
-            <div>
-                <Items>                
-                <img src={card} alt="cadeado" />
-                <h3>card</h3>
-                </Items>
-            </div>
-            <div>
-                <Items>                
-                <img src={card} alt="cadeado" />
-                <h3>card</h3>
-                </Items>
-            </div>
-            <div>
-                <Items>                
-                <img src={card} alt="cadeado" />
-                <h3>card</h3>
-                </Items>
-            </div>
-            <div>
-                <Items>                
-                <img src={card} alt="cadeado" />
-                <h3>card</h3>
-                </Items>
-                </div>
+        {data.length === 0 ? (
+          <p>Não há cartões cadastrados</p>
+        ) : (
+          data.map((e, index) => (
+            <Card key={index} title={e.title} cardId={e.id}/>
+          ))
+        )}
             </ContentMenu>
             <Link to={"/cadastro-card"}>
                 <Plus><h2>+</h2></Plus>
