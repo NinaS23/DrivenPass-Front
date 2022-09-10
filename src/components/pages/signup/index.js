@@ -12,27 +12,22 @@ export default function Signup(){
     const [disabled, setDisabled] = useState(false);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate()
-
+console.log(email,password)
     async function sendFormes(e) {
         try {
           e.preventDefault();
           setDisabled(true);
           setLoading(true)
-          setEmail("")
-          setPassword("")
+        
     
           const body = { email, password };
     
           await axios.post(`http://localhost:6003/sign-up`, body);
     
-          setEmail("")
-          setPassword("")
           navigate("/");
         } catch (error) {
           setDisabled(false);
           setLoading(false);
-          setEmail("")
-          setPassword("")
           swal(error.response.data , error.response.data , "error")
         }
       }
