@@ -57,7 +57,11 @@ export default function CredentialById({ setType }) {
                 <Link to={"/credentials"}>
                     <Voltar>{text}</Voltar>
                 </Link>
-                <Delete />
+                <Delete
+                    id={data.id}
+                    pathBack={"/credential"}
+                    pathFront={"/credentials"}
+                />
             </Footer>
         </>
 

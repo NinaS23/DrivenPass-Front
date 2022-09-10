@@ -3,13 +3,16 @@ import Modal from "react-modal";
 import styled from "styled-components";
 import swal from 'sweetalert';
 import { ThreeDots } from "react-loader-spinner";
-import {useState} from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 Modal.setAppElement(".root");
 
-function Delete({ postId, token, renderizarPosts, render }) {
+function Delete({ id,pathFront,pathBack }) {
   const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const token = localStorage.getItem("token")
+  const navigate = useNavigate()
 
   function modalDinamico() {
     setIsOpen(!isOpen);
@@ -24,10 +27,10 @@ function Delete({ postId, token, renderizarPosts, render }) {
         },
       };
 
-      await axios.delete(`https://linkr-driven-16.herokuapp.com/post/${postId}`, config);
+      await axios.delete(`http://localhost:6003${pathBack}/${id}`, config);
       setLoading(false);
       modalDinamico();
-      renderizarPosts();
+      navigate(pathFront)
     } catch (e) {
       console.log(e);
       modalDinamico();
