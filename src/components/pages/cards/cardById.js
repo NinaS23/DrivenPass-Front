@@ -1,11 +1,56 @@
-//import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Delete from "../../shared/deleIcon.js";
+import { useEffect,useState } from "react";
+import swal from "sweetalert";
+import axios from "axios";
+
 export default function CardById({ setType }) {
     setType("card")
     const text = "< voltar"
-    //const { id } = useParams();
+    let virtual = ""
+    let typeCard = ""
+    const { id } = useParams();
+    const [data, setData] = useState([])
+    const token = localStorage.getItem("token");
+    async function getCard() {
+
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        };
+
+        axios
+            .get(`http://localhost:6003/card/${id}`, config)
+            .then(({ data }) => {
+                setData(data)
+            })
+            .catch((error) => {
+                swal(error.response.data, error.response.data, "error")
+            });
+    }
+    console.log(data)
+    useEffect(() => {
+        getCard()
+    }, []);
+    
+    if(data.isVirtual === true){
+         virtual = "sim"
+    }else{
+        virtual = "não"
+    }
+
+
+    if (data.type === "credit") {
+        typeCard = "crédito"
+    } else if (data.type === "debit") {
+        typeCard = "débito"
+    } else {
+        typeCard = "débito e crédito"
+    }
+
     return (
         <>
             <ContentCredential>
@@ -13,35 +58,35 @@ export default function CardById({ setType }) {
                 <div>
                     <ItemsCredentials>
                         <h2>Número do cartão</h2>
-                        <p>conteudo do titulo referente a credencial</p>
+                        <p>{data.number_card}</p>
                     </ItemsCredentials>
                     <ItemsCredentials>
                         <h2>Nome Impresso</h2>
-                        <p>conteudo do titulo referente a credencial</p>
+                        <p>{data.name}</p>
                     </ItemsCredentials>
                     <ItemsCredentials>
                         <h2>titulo do cartão</h2>
-                        <p>conteudo do titulo referente a credencial</p>
+                        <p>{data.title}</p>
                     </ItemsCredentials>
                     <ItemsCredentials>
                         <h2>Código de Segurança</h2>
-                        <p>conteudo do titulo referente a credencial</p>
+                        <p>o código é criptografado</p>
                     </ItemsCredentials>
                     <ItemsCredentials>
                         <h2>data de expiração</h2>
-                        <p>conteudo do titulo referente a credencial</p>
+                        <p>{data.expirationDate}</p>
                     </ItemsCredentials>
                     <ItemsCredentials>
                         <h2>senha</h2>
-                        <p>conteudo do titulo referente a credencial</p>
+                        <p>senha criptografada</p>
                     </ItemsCredentials>
                     <ItemsCredentials>
                         <h2>tipo do cartão</h2>
-                        <p>conteudo do titulo referente a credencial</p>
+                        <p>{typeCard}</p>
                     </ItemsCredentials>
                     <ItemsCredentials>
                         <h2>virtual</h2>
-                        <p>conteudo do titulo referente a credencial</p>
+                        <p>{virtual}</p>
                     </ItemsCredentials>
                 </div>
             </ContentCredential>
@@ -124,6 +169,6 @@ position: fixed;
   background-color: #FFFFFF;
   color: white;
   text-align: center;
-  height: 10%;
+ 
 
 `

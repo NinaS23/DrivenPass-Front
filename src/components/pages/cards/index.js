@@ -7,7 +7,7 @@ import axios from "axios";
 import swal from "sweetalert";
 import { useState } from "react";
 
-export default function Cards({setType,setpathWay}){
+export default function Cards({setType}){
     setType("cards")
     const [data,setData] = useState([])
     const [length,setLength] = useState(0)
@@ -33,7 +33,7 @@ export default function Cards({setType,setpathWay}){
     useEffect(() => {
         getCards()
       }, [length]);
-      console.log(data)
+      
     function Card({title,cardId}) {
         return (
             <div>
