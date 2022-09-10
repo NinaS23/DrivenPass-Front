@@ -55,10 +55,14 @@ export default function WifiById({ setType }) {
                 </div>
             </ContentCredential>
             <Footer>
-            <Link to={"/wifi"}>
+                <Link to={"/wifi"}>
                     <Voltar>{text}</Voltar>
                 </Link>
-                <Delete />
+                <Delete
+                    id={data.id}
+                    pathBack={"/network"}
+                    pathFront={"/wifi"}
+                />
             </Footer>
         </>
 
