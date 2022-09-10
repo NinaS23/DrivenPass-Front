@@ -31,7 +31,7 @@ export default function CardById({ setType }) {
                 swal(error.response.data, error.response.data, "error")
             });
     }
-    console.log(data)
+ 
     useEffect(() => {
         getCard()
     }, []);

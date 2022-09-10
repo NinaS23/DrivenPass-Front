@@ -32,7 +32,6 @@ function Delete({ id,pathFront,pathBack }) {
       modalDinamico();
       navigate(pathFront)
     } catch (e) {
-      console.log(e);
       modalDinamico();
       setLoading(false);
       swal( "opsssss",

@@ -32,7 +32,6 @@ export default function SafeNotes({setType}){
     useEffect(() => {
         getSafeNotes()
     }, [length]);
-    console.log(data)
 
     function SafeNote({title,id}) {
         return (

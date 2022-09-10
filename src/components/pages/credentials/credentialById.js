@@ -29,7 +29,7 @@ export default function CredentialById({ setType }) {
                 swal(error.response.data, error.response.data, "error")
             });
     }
-    console.log(data)
+  
     useEffect(() => {
         getCredential()
     }, []);

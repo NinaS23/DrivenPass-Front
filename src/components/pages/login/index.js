@@ -42,7 +42,6 @@ export default function Login() {
             setLoading(false)
             navigate("/menu");
         } catch (error) {
-            console.log(error)
             setLoading(false)
             setDisabled(false);
             setEmail("")

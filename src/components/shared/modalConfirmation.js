@@ -20,7 +20,6 @@ function Confirmation({ pathBack,body,setDisabled,pathFront }) {
   }
 
   async function register() {
-    console.log(body,pathBack)
     setDisabled(true)
     setLoading(true);
     try {
@@ -37,7 +36,6 @@ function Confirmation({ pathBack,body,setDisabled,pathFront }) {
       modalDinamico();
       navigate(pathFront)
     } catch (e) {
-      console.log(e);
       modalDinamico();
       setDisabled(false)
       setLoading(false)
