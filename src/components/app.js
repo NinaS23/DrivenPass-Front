@@ -16,7 +16,6 @@ import CredentialById from "./pages/credentials/credentialById.js";
 import RegisterSafeNotes from "./pages/safeNotes/index.js";
 import SafeNotes from "./pages/safeNotes/safeNotes.js";
 import SafeNotesById from "./pages/safeNotes/safeNoteById.js";
-
 import Header from "./shared/header/header.js";
 import { useState } from "react";
 
@@ -24,6 +23,7 @@ import { useState } from "react";
 
 export default function App() {
   const [type , setType] = useState("")
+  
 
   return (
     <>
@@ -45,9 +45,9 @@ export default function App() {
             <Route path="/wifi" element={<Wifi setType={setType}/>} />
             <Route path="/cadastro-wifi" element={<RegisterWifi setType={setType}/>} />
             <Route path="/wifi/:id" element={<WifiById setType={setType}/>} />
-            
           </Routes>
         </BrowserRouter>
+      
     </>
   );
 }
