@@ -2,45 +2,61 @@
 import styled from "styled-components";
 import wifi from "../../../assets/images/wifi.svg";
 import {Link} from "react-router-dom";
+import { useEffect } from "react";
+import axios from "axios";
+import swal from "sweetalert";
+import { useState } from "react";
+
 
 export default function Wifi({setType}){
     setType("wifi")
+    const [data,setData] = useState([])
+    const [length,setLength] = useState(0)
+    const token = localStorage.getItem("token");
+    async function getCredentials() {
+   
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        };
 
-    return (
-        <>
-        <ContentMenu>
+        axios
+            .get(`http://localhost:6003/networks`,config)
+            .then(({ data }) => {
+                setData(data)
+                setLength(data.length)
+            })
+            .catch((error) => {
+                swal(error.response.data, error.response.data, "error")
+            });
+    }
+    useEffect(() => {
+        getCredentials()
+    }, [length]);
+  
+    function WifiById({name,id}) {
+        return (
             <div>
-                <StyledLink to={"/wifi/:id"}>
-                <Items>                
-                <img src={wifi} alt="cadeado" />
-                <h3>wifi</h3>
-                </Items>
+                <StyledLink to={`/wifi/${id}`}>
+                    <Items>
+                        <img src={wifi} alt="cadeado" />
+                        <h3>{name}</h3>
+                    </Items>
                 </StyledLink>
             </div>
-            <div>
-                <Items>                
-                <img src={wifi} alt="cadeado" />
-                <h3>wifi</h3>
-                </Items>
-            </div>
-            <div>
-                <Items>                
-                <img src={wifi} alt="cadeado" />
-                <h3>wifi</h3>
-                </Items>
-            </div>
-            <div>
-                <Items>                
-                <img src={wifi} alt="cadeado" />
-                <h3>wifi</h3>
-                </Items>
-            </div>
-            <div>
-                <Items>                
-                <img src={wifi} alt="cadeado" />
-                <h3>wifi</h3>
-                </Items>
-                </div>
+        )
+    }
+    return (
+        <>
+            <ContentMenu>
+                {data.length === 0 ? (
+                    <p>Não há Wifi cadastradas</p>
+                ) : (
+                    data.map((e, index) => (
+                        <WifiById key={index} name={e.networkName} id={e.id} />
+                    ))
+                )}
             </ContentMenu>
             <Link to={"/cadastro-wifi"}>
                 <Plus><h2>+</h2></Plus>
