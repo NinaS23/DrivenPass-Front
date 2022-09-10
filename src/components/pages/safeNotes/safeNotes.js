@@ -2,45 +2,62 @@
 import styled from "styled-components";
 import safeNotes from "../../../assets/images/safeNotes.svg";
 import {Link} from "react-router-dom";
+import axios from "axios";
+import { useState,useEffect } from "react";
+import swal from "sweetalert";
 
 export default function SafeNotes({setType}){
     setType("safeNotes")
+    const [data,setData] = useState([])
+    const [length,setLength] = useState(0)
+    const token = localStorage.getItem("token");
+    async function getCredentials() {
+   
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        };
+
+        axios
+            .get(`http://localhost:6003/safeNote`,config)
+            .then(({ data }) => {
+                setData(data)
+                setLength(data.length)
+            })
+            .catch((error) => {
+                swal(error.response.data, error.response.data, "error")
+            });
+    }
+    useEffect(() => {
+        getCredentials()
+    }, [length]);
+    console.log(data)
+
+    function SafeNote({title,id}) {
+        return (
+            <div>
+                <StyledLink to={`/safeNotes/${id}`}>
+                    <Items>
+                        <img src={safeNotes} alt="cadeado" />
+                        <h3>{title}</h3>
+                    </Items>
+                </StyledLink>
+            </div>
+        )
+    }
 
     return (
         <>
-        <ContentMenu>
-            <div>
-                <StyledLink to={"/safeNotes/:id"}>
-                <Items>                
-                <img src={safeNotes} alt="cadeado" />
-                <h3>safeNotes</h3>
-                </Items>
-                </StyledLink>
-            </div>
-            <div>
-                <Items>                
-                <img src={safeNotes} alt="cadeado" />
-                <h3>safeNotes</h3>
-                </Items>
-            </div>
-            <div>
-                <Items>                
-                <img src={safeNotes} alt="cadeado" />
-                <h3>safeNotes</h3>
-                </Items>
-            </div>
-            <div>
-                <Items>                
-                <img src={safeNotes} alt="cadeado" />
-                <h3>safeNotes</h3>
-                </Items>
-            </div>
-            <div>
-                <Items>                
-                <img src={safeNotes} alt="cadeado" />
-                <h3>safeNotes</h3>
-                </Items>
-                </div>
+            <ContentMenu>
+                {data.length === 0 ? (
+                    <p>Não há hashtags cadastradas</p>
+                ) : (
+                    data.map((e, index) => (
+                        <SafeNote key={index} title={e.title} id={e.id}/>
+                    ))
+                )}
+
             </ContentMenu>
             <Link to={"/cadastro-safeNotes"}>
                 <Plus><h2>+</h2></Plus>
