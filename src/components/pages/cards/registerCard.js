@@ -30,6 +30,7 @@ export default function RegisterCard({ setType }) {
         isVirtual: "",
         type: ""
     });
+
     if (cardInfo.type === "crédito") {
         typeCard = "credit"
     } else if (cardInfo.type === "débito") {
@@ -37,14 +38,14 @@ export default function RegisterCard({ setType }) {
     } else {
         typeCard = "debitAndCredit"
     }
-    console.log(typeCard)
+   
 
     if (cardInfo.isVirtual === "sim") {
         isVirtualCard = true
     } else {
         isVirtualCard = false
     }
-    console.log(isVirtualCard)
+
     const body ={
         number_card:cardInfo.number_card,
         name:cardInfo.name,
@@ -55,6 +56,7 @@ export default function RegisterCard({ setType }) {
         isVirtual:isVirtualCard,
         type:typeCard
     }
+    
     return (
         <>
             <Register>cadastro</Register>
