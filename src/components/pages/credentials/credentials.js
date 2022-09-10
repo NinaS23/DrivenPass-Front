@@ -35,10 +35,10 @@ export default function Credentials({setType}){
       }, [length]);
     
 
-    function Credential({title}) {
+    function Credential({title,id}) {
         return (
             <div>
-            <StyledLink to={"/credentials/:id"}>
+            <StyledLink to={`/credentials/${id}`}>
                 <Items>
                     <img src={credentials} alt="cadeado" />
                     <h3>{title}</h3>
@@ -54,7 +54,7 @@ export default function Credentials({setType}){
           <p>Não há hashtags cadastradas</p>
         ) : (
           data.map((e, index) => (
-            <Credential key={index} title={e.title} />
+            <Credential key={index} title={e.title} id={e.id}/>
           ))
         )}
             </ContentMenu>

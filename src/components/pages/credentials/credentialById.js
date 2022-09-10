@@ -2,10 +2,39 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Delete from "../../shared/deleIcon.js";
+import { useParams } from "react-router-dom";
+import swal from "sweetalert";
+import axios from "axios";
+import { useState, useEffect } from "react";
+
 export default function CredentialById({ setType }) {
     setType("credentials")
     const text = "< voltar"
-    //const { id } = useParams();
+    const { id } = useParams();
+    const [data, setData] = useState([])
+    const token = localStorage.getItem("token");
+    async function getCredential() {
+
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        };
+
+        axios
+            .get(`http://localhost:6003/credential/${id}`, config)
+            .then(({ data }) => {
+                setData(data)
+            })
+            .catch((error) => {
+                swal(error.response.data, error.response.data, "error")
+            });
+    }
+    console.log(data)
+    useEffect(() => {
+        getCredential()
+    }, []);
+
     return (
         <>
             <ContentCredential>
@@ -13,20 +42,20 @@ export default function CredentialById({ setType }) {
                 <div>
                     <ItemsCredentials>
                         <h2>URL</h2>
-                        <p>conteudo do titulo referente a credencial</p>
+                        <p>{data.url}</p>
                     </ItemsCredentials>
                     <ItemsCredentials>
                         <h2>Usuário</h2>
-                        <p>conteudo do titulo referente a credencial</p>
+                        <p>{data.username}</p>
                     </ItemsCredentials>
                     <ItemsCredentials>
                         <h2>Senha</h2>
-                        <p>conteudo do titulo referente a credencial</p>
+                        <p>{data.password}</p>
                     </ItemsCredentials>
                 </div>
             </ContentCredential>
             <Footer>
-            <Link to={"/credentials"}>
+                <Link to={"/credentials"}>
                     <Voltar>{text}</Voltar>
                 </Link>
                 <Delete />
