@@ -21,6 +21,8 @@ export default function Login() {
             e.preventDefault();
             setDisabled(true);
             setLoading(true)
+            setEmail("")
+            setPassword("")
             
 
             const body = { email, password };
@@ -43,6 +45,8 @@ export default function Login() {
             console.log(error)
             setLoading(false)
             setDisabled(false);
+            setEmail("")
+            setPassword("")
             swal(error.response.data , error.response.data , "error")
         }
     }

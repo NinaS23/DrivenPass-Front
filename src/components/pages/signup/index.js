@@ -18,15 +18,21 @@ export default function Signup(){
           e.preventDefault();
           setDisabled(true);
           setLoading(true)
+          setEmail("")
+          setPassword("")
     
           const body = { email, password };
     
           await axios.post(`http://localhost:6003/sign-up`, body);
     
+          setEmail("")
+          setPassword("")
           navigate("/");
         } catch (error) {
           setDisabled(false);
-          setLoading(false)
+          setLoading(false);
+          setEmail("")
+          setPassword("")
           swal(error.response.data , error.response.data , "error")
         }
       }
