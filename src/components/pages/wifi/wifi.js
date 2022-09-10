@@ -13,7 +13,7 @@ export default function Wifi({setType}){
     const [data,setData] = useState([])
     const [length,setLength] = useState(0)
     const token = localStorage.getItem("token");
-    async function getCredentials() {
+    async function getWifi() {
    
         const config = {
             headers: {
@@ -32,10 +32,10 @@ export default function Wifi({setType}){
             });
     }
     useEffect(() => {
-        getCredentials()
+        getWifi()
     }, [length]);
   
-    function WifiById({name,id}) {
+    function Wifis({name,id}) {
         return (
             <div>
                 <StyledLink to={`/wifi/${id}`}>
@@ -51,10 +51,10 @@ export default function Wifi({setType}){
         <>
             <ContentMenu>
                 {data.length === 0 ? (
-                    <p>Não há Wifi cadastradas</p>
+                    <p>Não há Wifi cadastrados</p>
                 ) : (
                     data.map((e, index) => (
-                        <WifiById key={index} name={e.networkName} id={e.id} />
+                        <Wifis key={index} name={e.networkName} id={e.id} />
                     ))
                 )}
             </ContentMenu>
