@@ -51,7 +51,11 @@ export default function SafeNotesById({ setType }) {
             <Link to={"/safeNotes"}>
                     <Voltar>{text}</Voltar>
                 </Link>
-                <Delete />
+                <Delete 
+                  id={data.id}
+                  pathBack={"/safeNote"}
+                  pathFront={"/safeNotes"}
+                />
             </Footer>
         </>
 
