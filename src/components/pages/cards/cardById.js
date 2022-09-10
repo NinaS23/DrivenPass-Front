@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Delete from "../../shared/deleIcon.js";
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 import swal from "sweetalert";
 import axios from "axios";
 
@@ -35,10 +35,10 @@ export default function CardById({ setType }) {
     useEffect(() => {
         getCard()
     }, []);
-    
-    if(data.isVirtual === true){
-         virtual = "sim"
-    }else{
+
+    if (data.isVirtual === true) {
+        virtual = "sim"
+    } else {
         virtual = "não"
     }
 
@@ -91,7 +91,7 @@ export default function CardById({ setType }) {
                 </div>
             </ContentCredential>
             <Footer>
-            <Link to={"/cards"}>
+                <Link to={"/cards"}>
                     <Voltar>{text}</Voltar>
                 </Link>
                 <Delete

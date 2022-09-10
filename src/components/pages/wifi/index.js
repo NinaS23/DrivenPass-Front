@@ -6,13 +6,17 @@ import { useState } from "react";
 export default function RegisterWifi({ setType }) {
     setType("wifi")
     const text = "< voltar";
-    const [ wifiInfo , setWifiInfo] = useState({
+    const [wifiInfo, setWifiInfo] = useState({
         name: "",
         label: "",
-        password:""
+        password: ""
     });
     const [disabled, setDisabled] = useState(false);//setar true depois
-
+    const body = {
+        networkName: wifiInfo.name,
+        password: wifiInfo.password,
+        title: wifiInfo.label
+    }
     return (
         <>
             <Register>cadastro</Register>
@@ -52,7 +56,12 @@ export default function RegisterWifi({ setType }) {
                 <Link to={"/wifi"}>
                     <Voltar>{text}</Voltar>
                 </Link>
-                <Confirmation />
+                <Confirmation
+                    body={body}
+                    pathBack={'/network'}
+                    setDisabled={setDisabled}
+                    pathFront={'/wifi'}
+                />
             </Footer>
         </>
 
