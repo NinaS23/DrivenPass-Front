@@ -51,7 +51,7 @@ export default function Credentials({setType}){
         <>
         <ContentMenu>
         {data.length === 0 ? (
-          <p>Não há hashtags cadastradas</p>
+          <p>Não há credenciais cadastradas</p>
         ) : (
           data.map((e, index) => (
             <Credential key={index} title={e.title} id={e.id}/>

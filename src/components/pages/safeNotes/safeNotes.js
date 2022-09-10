@@ -11,7 +11,7 @@ export default function SafeNotes({setType}){
     const [data,setData] = useState([])
     const [length,setLength] = useState(0)
     const token = localStorage.getItem("token");
-    async function getCredentials() {
+    async function getSafeNotes() {
    
         const config = {
             headers: {
@@ -30,7 +30,7 @@ export default function SafeNotes({setType}){
             });
     }
     useEffect(() => {
-        getCredentials()
+        getSafeNotes()
     }, [length]);
     console.log(data)
 
@@ -51,7 +51,7 @@ export default function SafeNotes({setType}){
         <>
             <ContentMenu>
                 {data.length === 0 ? (
-                    <p>Não há hashtags cadastradas</p>
+                    <p>Não há notas cadastradas</p>
                 ) : (
                     data.map((e, index) => (
                         <SafeNote key={index} title={e.title} id={e.id}/>

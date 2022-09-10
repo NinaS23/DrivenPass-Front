@@ -12,7 +12,7 @@ export default function SafeNotesById({ setType }) {
     const { id } = useParams();
     const [data, setData] = useState([])
     const token = localStorage.getItem("token");
-    async function getCredential() {
+    async function getSafeNote() {
 
         const config = {
             headers: {
@@ -30,7 +30,7 @@ export default function SafeNotesById({ setType }) {
             });
     }
     useEffect(() => {
-        getCredential()
+        getSafeNote()
     }, []);
     return (
         <>
