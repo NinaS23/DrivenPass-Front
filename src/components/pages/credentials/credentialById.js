@@ -37,7 +37,7 @@ export default function CredentialById({ setType }) {
     return (
         <>
             <ContentCredential>
-                <h3>nome da credencial</h3>
+                <h3>{data.title}</h3>
                 <div>
                     <ItemsCredentials>
                         <h2>URL</h2>
