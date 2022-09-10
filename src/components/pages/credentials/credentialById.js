@@ -1,8 +1,7 @@
-//import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Delete from "../../shared/deleIcon.js";
-import { useParams } from "react-router-dom";
 import swal from "sweetalert";
 import axios from "axios";
 import { useState, useEffect } from "react";
