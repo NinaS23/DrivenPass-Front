@@ -1,11 +1,40 @@
-//import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Delete from "../../shared/deleIcon.js";
+import swal from "sweetalert";
+import axios from "axios";
+import { useState, useEffect } from "react";
+
 export default function WifiById({ setType }) {
     setType("wifi")
     const text = "< voltar"
-    //const { id } = useParams();
+    const { id } = useParams();
+    const [data, setData] = useState([])
+    const token = localStorage.getItem("token");
+
+    async function getWifiById() {
+
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        };
+
+        axios
+            .get(`http://localhost:6003/network/${id}`, config)
+            .then(({ data }) => {
+                setData(data)
+            })
+            .catch((error) => {
+                swal(error.response.data, error.response.data, "error")
+            });
+    }
+    console.log(data)
+    useEffect(() => {
+        getWifiById()
+    }, []);
+    
     return (
         <>
             <ContentCredential>
@@ -13,15 +42,15 @@ export default function WifiById({ setType }) {
                 <div>
                     <ItemsCredentials>
                         <h2>Nome da rede</h2>
-                        <p>conteudo do titulo referente a credencial</p>
+                        <p>{data.networkName}</p>
                     </ItemsCredentials>
                     <ItemsCredentials>
                         <h2>Rótulo da rede</h2>
-                        <p>conteudo do titulo referente a credencial</p>
+                        <p>{data.title}</p>
                     </ItemsCredentials>
                     <ItemsCredentials>
                         <h2>Senha</h2>
-                        <p>conteudo do titulo referente a credencial</p>
+                        <p>conteúdo sensivel</p>
                     </ItemsCredentials>
                 </div>
             </ContentCredential>
