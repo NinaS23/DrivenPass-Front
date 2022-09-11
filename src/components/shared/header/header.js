@@ -92,5 +92,5 @@ text-decoration: none;
 `
 const ImageLink = styled(Link)`
 text-decoration: none;
-margin-top: 4%;
+margin-top: 1.63%;
 `
