@@ -5,21 +5,21 @@ import card from "../../../assets/images/card.svg";
 import wifi from "../../../assets/images/wifi.svg";
 import { Link } from "react-router-dom";
 
-export default function Menu({setType}){
+export default function Menu({ setType }) {
     setType("Minhas senhas")
 
     return (
         <>
-        <ContentMenu>
-            <div>
-            <StyledLink to={"/credentials"}> 
-                <Items>                
-                <img src={credentials} alt="cadeado" />
-                <h3>credentials</h3>
-                </Items>
-                </StyledLink>
-                <Circle><h3>1</h3></Circle>
-            </div>
+            <ContentMenu>
+                <div>
+                    <StyledLink to={"/credentials"}>
+                        <Items>
+                            <img src={credentials} alt="cadeado" />
+                            <h3>credentials</h3>
+                        </Items>
+                    </StyledLink>
+                    <Circle><h3>1</h3></Circle>
+                </div>
                 <div>
                     <StyledLink to={"/safeNotes"}>
                         <Items>
@@ -37,19 +37,19 @@ export default function Menu({setType}){
                         </Items>
                     </StyledLink>
                     <Circle><h3>1</h3></Circle>
-            </div>
-            <div>
-            <StyledLink to={"/wifi"}>
-                <Items>                
-                <img src={wifi} alt="cadeado" />
-                <h3>wifi</h3>
-                </Items>
-                </StyledLink>
-                <Circle><h3>1</h3></Circle>
-            </div>
-        </ContentMenu>
-        <Plus>
-            <h4>DrivenPass</h4>
+                </div>
+                <div>
+                    <StyledLink to={"/wifi"}>
+                        <Items>
+                            <img src={wifi} alt="cadeado" />
+                            <h3>wifi</h3>
+                        </Items>
+                    </StyledLink>
+                    <Circle><h3>1</h3></Circle>
+                </div>
+            </ContentMenu>
+            <Plus>
+                <h4>DrivenPass</h4>
             </Plus>
         </>
 

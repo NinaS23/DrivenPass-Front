@@ -25,6 +25,7 @@ export default function App() {
   const [type , setType] = useState("")
   const [pathBack,setPathBack] = useState("")
 
+
   return (
     <>
         <BrowserRouter>
@@ -32,8 +33,8 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Login/>} />  
             <Route path="/sign-up" element={<Signup />} />
-            <Route path="/menu" element={<Menu setType={setType} />} />
-            <Route path="/credentials" element={<Credentials  setType={setType} setPathBack={setPathBack}/>} />
+            <Route path="/menu" element={<Menu setType={setType}  />} />
+            <Route path="/credentials" element={<Credentials  setType={setType} setPathBack={setPathBack}/>}  />
             <Route path="/cadastro-credentials" element={<RegisterCredentials  setType={setType} setPathBack={setPathBack}/>} />
             <Route path="/credentials/:id" element={<CredentialById  setType={setType} setPathBack={setPathBack}/>} />
             <Route path="/cadastro-safeNotes" element={<RegisterSafeNotes  setType={setType} setPathBack={setPathBack}/>} />
@@ -42,7 +43,7 @@ export default function App() {
             <Route path="/cards" element={<Cards setType={setType} setPathBack={setPathBack}/>} />
             <Route path="/cadastro-card" element={<RegisterCard setType={setType} setPathBack={setPathBack}/>} />
             <Route path="/card/:id" element={<CardById setType={setType} setPathBack={setPathBack}/>} />
-            <Route path="/wifi" element={<Wifi setType={setType} setPathBack={setPathBack}/> } />
+            <Route path="/wifi" element={<Wifi setType={setType} setPathBack={setPathBack} /> } />
             <Route path="/cadastro-wifi" element={<RegisterWifi setType={setType}  setPathBack={setPathBack}/>} />
             <Route path="/wifi/:id" element={<WifiById setType={setType} setPathBack={setPathBack}/>} />
           </Routes>
