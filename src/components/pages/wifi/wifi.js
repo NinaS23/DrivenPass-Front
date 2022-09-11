@@ -35,6 +35,7 @@ export default function Wifi({setType}){
         getWifi()
     }, [length]);
   
+  
     function Wifis({name,id}) {
         return (
             <div>
