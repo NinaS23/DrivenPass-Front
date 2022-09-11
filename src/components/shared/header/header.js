@@ -14,14 +14,14 @@ export default function Header({ type,pathBack }) {
         <>
             <HeaderContent>
                 <div>
-                    <Link to={"/menu"}>
+                    <StyledLink to={"/menu"}>
                         <img src={lock} alt="cadeado" />
-                    </Link>
+                    </StyledLink>
                     <h2>DrivenPass</h2>
                 </div>
-                <Link to={"/"}>
+                <ImageLink to={"/"}>
                     <img src={out} alt="cadeado" />
-                </Link>
+                </ImageLink>
             </HeaderContent>
             <Status>
                 <h3>{type}</h3>
@@ -34,9 +34,10 @@ export default function Header({ type,pathBack }) {
 const HeaderContent = styled.div`
 display: flex;
 justify-content: space-between;
+align-items: center;
 img{
     margin-right: 7%;
-    margin-top: 4%;
+    
 }
 div{
     display: flex;
@@ -88,4 +89,8 @@ color: #FFFFFF;
 `
 const StyledLink = styled(Link)`
 text-decoration: none;
+`
+const ImageLink = styled(Link)`
+text-decoration: none;
+margin-top: 4%;
 `
