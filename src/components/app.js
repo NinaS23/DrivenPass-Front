@@ -32,7 +32,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Login/>} />  
             <Route path="/sign-up" element={<Signup />} />
-            <Route path="/menu" element={<Menu setType={setType}/>} />
+            <Route path="/menu" element={<Menu setType={setType} />} />
             <Route path="/credentials" element={<Credentials  setType={setType}/>} />
             <Route path="/cadastro-credentials" element={<RegisterCredentials  setType={setType}/>} />
             <Route path="/credentials/:id" element={<CredentialById  setType={setType}/>} />
@@ -42,7 +42,7 @@ export default function App() {
             <Route path="/cards" element={<Cards setType={setType}/>} />
             <Route path="/cadastro-card" element={<RegisterCard setType={setType}/>} />
             <Route path="/card/:id" element={<CardById setType={setType}/>} />
-            <Route path="/wifi" element={<Wifi setType={setType}/>} />
+            <Route path="/wifi" element={<Wifi setType={setType} /> } />
             <Route path="/cadastro-wifi" element={<RegisterWifi setType={setType}/>} />
             <Route path="/wifi/:id" element={<WifiById setType={setType}/>} />
           </Routes>
