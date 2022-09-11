@@ -9,7 +9,7 @@ export default function Header({ type,pathBack }) {
     function canRenderHeader() {
         return !["/", "/sign-up"].includes(location.pathname);
     }
-
+   const text = "< voltar"
     return canRenderHeader() ? (
         <>
             <HeaderContent>
@@ -25,7 +25,7 @@ export default function Header({ type,pathBack }) {
             </HeaderContent>
             <Status>
                 <h3>{type}</h3>
-                <StyledLink to={pathBack}><h3>voltar</h3></StyledLink>
+                <StyledLink to={pathBack}><h3>{text}</h3></StyledLink>
                 </Status>
         </>
     ) : null;
