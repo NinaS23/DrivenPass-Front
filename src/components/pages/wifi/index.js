@@ -3,8 +3,9 @@ import Confirmation from "../../shared/modalConfirmation.js";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-export default function RegisterWifi({ setType }) {
+export default function RegisterWifi({ setType , setPathBack}) {
     setType("wifi")
+    setPathBack("/wifi")
     const text = "< voltar";
     const [wifiInfo, setWifiInfo] = useState({
         name: "",

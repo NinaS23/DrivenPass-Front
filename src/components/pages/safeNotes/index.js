@@ -3,8 +3,9 @@ import Confirmation from "../../shared/modalConfirmation.js";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-export default function RegisterSafeNotes({ setType }) {
+export default function RegisterSafeNotes({ setType,setPathBack }) {
     setType("safeNotes")
+    setPathBack("/safeNotes")
     const text = "< voltar";
     const [safeNotesInfo, setSafeNotesInfo] = useState({
         title: "",

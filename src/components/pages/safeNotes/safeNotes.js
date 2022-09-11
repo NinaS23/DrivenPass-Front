@@ -6,8 +6,9 @@ import axios from "axios";
 import { useState,useEffect } from "react";
 import swal from "sweetalert";
 
-export default function SafeNotes({setType}){
+export default function SafeNotes({setType,setPathBack}){
     setType("safeNotes")
+    setPathBack("/menu")
     const [data,setData] = useState([])
     const [length,setLength] = useState(0)
     const token = localStorage.getItem("token");

@@ -6,8 +6,9 @@ import axios from "axios";
 import swal from "sweetalert";
 
 
-export default function RegisterCredentials({ setType }) {
+export default function RegisterCredentials({ setType,setPathBack }) {
     setType("credenciais")
+    setPathBack("/credentials")
     const text = "< voltar";
     const [ credentialsInfo , setCrendetialsInfo] = useState({
         title: "",

@@ -6,8 +6,9 @@ import swal from "sweetalert";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-export default function WifiById({ setType }) {
+export default function WifiById({ setType,setPathBack }) {
     setType("wifi")
+    setPathBack("/wifi")
     const text = "< voltar"
     const { id } = useParams();
     const [data, setData] = useState([])

@@ -3,8 +3,9 @@ import Confirmation from "../../shared/modalConfirmation.js";
 import { Link } from "react-router-dom";
 import React, { useState } from 'react';
 
-export default function RegisterCard({ setType }) {
+export default function RegisterCard({ setType,setPathBack }) {
     setType("card")
+    setPathBack("/cards")
     let typeCard = ""
     let isVirtualCard;
     const list = [

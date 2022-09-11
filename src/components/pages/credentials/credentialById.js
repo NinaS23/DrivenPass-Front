@@ -6,8 +6,9 @@ import swal from "sweetalert";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-export default function CredentialById({ setType }) {
+export default function CredentialById({ setType,setPathBack }) {
     setType("credentials")
+    setPathBack("/credentials")
     const text = "< voltar"
     const { id } = useParams();
     const [data, setData] = useState([])

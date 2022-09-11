@@ -6,8 +6,9 @@ import { useEffect, useState } from "react";
 import swal from "sweetalert";
 import axios from "axios";
 
-export default function CardById({ setType }) {
+export default function CardById({ setType,setPathBack }) {
     setType("card")
+    setPathBack("/cards")
     const text = "< voltar"
     let virtual = ""
     let typeCard = ""

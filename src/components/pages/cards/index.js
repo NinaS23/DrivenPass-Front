@@ -7,8 +7,9 @@ import axios from "axios";
 import swal from "sweetalert";
 import { useState } from "react";
 
-export default function Cards({setType}){
+export default function Cards({setType,setPathBack}){
     setType("cards")
+    setPathBack("/menu")
     const [data,setData] = useState([])
     const [length,setLength] = useState(0)
     const token = localStorage.getItem("token");

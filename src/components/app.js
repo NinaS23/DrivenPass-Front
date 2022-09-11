@@ -23,28 +23,28 @@ import { useState } from "react";
 
 export default function App() {
   const [type , setType] = useState("")
-  
+  const [pathBack,setPathBack] = useState("")
 
   return (
     <>
         <BrowserRouter>
-          <Header type={type}/>
+          <Header type={type} pathBack={pathBack}/>
           <Routes>
             <Route path="/" element={<Login/>} />  
             <Route path="/sign-up" element={<Signup />} />
             <Route path="/menu" element={<Menu setType={setType} />} />
-            <Route path="/credentials" element={<Credentials  setType={setType}/>} />
-            <Route path="/cadastro-credentials" element={<RegisterCredentials  setType={setType}/>} />
-            <Route path="/credentials/:id" element={<CredentialById  setType={setType}/>} />
-            <Route path="/cadastro-safeNotes" element={<RegisterSafeNotes  setType={setType}/>} />
-            <Route path="/safeNotes" element={<SafeNotes  setType={setType}/>} />
-            <Route path="/safeNotes/:id" element={<SafeNotesById  setType={setType}/>} />
-            <Route path="/cards" element={<Cards setType={setType}/>} />
-            <Route path="/cadastro-card" element={<RegisterCard setType={setType}/>} />
-            <Route path="/card/:id" element={<CardById setType={setType}/>} />
-            <Route path="/wifi" element={<Wifi setType={setType} /> } />
-            <Route path="/cadastro-wifi" element={<RegisterWifi setType={setType}/>} />
-            <Route path="/wifi/:id" element={<WifiById setType={setType}/>} />
+            <Route path="/credentials" element={<Credentials  setType={setType} setPathBack={setPathBack}/>} />
+            <Route path="/cadastro-credentials" element={<RegisterCredentials  setType={setType} setPathBack={setPathBack}/>} />
+            <Route path="/credentials/:id" element={<CredentialById  setType={setType} setPathBack={setPathBack}/>} />
+            <Route path="/cadastro-safeNotes" element={<RegisterSafeNotes  setType={setType} setPathBack={setPathBack}/>} />
+            <Route path="/safeNotes" element={<SafeNotes  setType={setType}  setPathBack={setPathBack}/>} />
+            <Route path="/safeNotes/:id" element={<SafeNotesById  setType={setType} setPathBack={setPathBack}/>} />
+            <Route path="/cards" element={<Cards setType={setType} setPathBack={setPathBack}/>} />
+            <Route path="/cadastro-card" element={<RegisterCard setType={setType} setPathBack={setPathBack}/>} />
+            <Route path="/card/:id" element={<CardById setType={setType} setPathBack={setPathBack}/>} />
+            <Route path="/wifi" element={<Wifi setType={setType} setPathBack={setPathBack}/> } />
+            <Route path="/cadastro-wifi" element={<RegisterWifi setType={setType}  setPathBack={setPathBack}/>} />
+            <Route path="/wifi/:id" element={<WifiById setType={setType} setPathBack={setPathBack}/>} />
           </Routes>
         </BrowserRouter>
       

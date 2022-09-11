@@ -6,8 +6,9 @@ import swal from "sweetalert";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-export default function SafeNotesById({ setType }) {
+export default function SafeNotesById({ setType,setPathBack }) {
     setType("safeNotes")
+    setPathBack("/safeNotes")
     const text = "< voltar"
     const { id } = useParams();
     const [data, setData] = useState([])

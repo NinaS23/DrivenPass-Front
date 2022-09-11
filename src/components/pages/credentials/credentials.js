@@ -7,8 +7,9 @@ import axios from "axios";
 import swal from "sweetalert";
 import { useState } from "react";
 
-export default function Credentials({setType}){
+export default function Credentials({setType,setPathBack}){
     setType("credenciais")
+    setPathBack("/menu")
     const [data,setData] = useState([])
     const [length,setLength] = useState(0)
     const token = localStorage.getItem("token");

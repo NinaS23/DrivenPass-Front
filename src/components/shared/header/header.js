@@ -3,7 +3,7 @@ import styled from "styled-components";
 import lock from "../../../assets/images/lock.svg";
 import out from "../../../assets/images/out.svg";
 
-export default function Header({ type }) {
+export default function Header({ type,pathBack }) {
     const location = useLocation();
 
     function canRenderHeader() {
@@ -23,7 +23,10 @@ export default function Header({ type }) {
                     <img src={out} alt="cadeado" />
                 </Link>
             </HeaderContent>
-            <Status><h3>{type}</h3></Status>
+            <Status>
+                <h3>{type}</h3>
+                <StyledLink to={pathBack}><h3>voltar</h3></StyledLink>
+                </Status>
         </>
     ) : null;
 }
@@ -66,10 +69,12 @@ const Status = styled.div`
 width: 100%;
 height: 41px;
 background-color: #005985;
-justify-content: center;
+justify-content: space-between;
 align-items:center;
+padding-right: 2%;
 padding-left: 3%;
 padding-top:2%;
+display: flex;
 h3{
     font-family: 'Recursive';
 font-style: normal;
@@ -80,4 +85,7 @@ color: #FFFFFF;
 
 }
 
+`
+const StyledLink = styled(Link)`
+text-decoration: none;
 `
