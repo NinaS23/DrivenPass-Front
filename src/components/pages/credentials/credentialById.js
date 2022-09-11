@@ -55,9 +55,6 @@ export default function CredentialById({ setType,setPathBack }) {
                 </div>
             </ContentCredential>
             <Footer>
-                <Link to={"/credentials"}>
-                    <Voltar>{text}</Voltar>
-                </Link>
                 <Delete
                     id={data.id}
                     pathBack={"/credential"}
@@ -110,29 +107,12 @@ color: #222222;
 }
 `
 
-const Voltar = styled.h3`
-font-family: 'Recursive';
-font-style: normal;
-position: absolute;
-bottom:0px;
-font-weight: 400;
-font-size: 18px;
-line-height: 22px;
-/* identical to box height */
-
-text-align: center;
-text-decoration-line: underline;
-
-color: #000000;
-`
-
 const Footer = styled.div`
+ position: absolute;
+width: 100%;
+bottom: 0px;
 display: flex;
-position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #FFFFFF;
-  color: white;
-  text-align: center;
+padding-left: 5%;
+padding-right:15%;
+justify-content: flex-end;
 `
