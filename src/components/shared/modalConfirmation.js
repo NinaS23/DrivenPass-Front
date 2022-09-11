@@ -89,6 +89,7 @@ const Conteudo = styled.div`
   }
   width: 14px;
   height: 14px;
+  
 
 `;
 

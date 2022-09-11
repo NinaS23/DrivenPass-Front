@@ -54,9 +54,6 @@ export default function RegisterWifi({ setType , setPathBack}) {
                 </Items>
             </ContentMenu>
             <Footer>
-                <Link to={"/wifi"}>
-                    <Voltar>{text}</Voltar>
-                </Link>
                 <Confirmation
                     body={body}
                     pathBack={'/network'}
@@ -102,21 +99,7 @@ width: 100%;
 display: flex;
 padding-left: 5%;
 padding-right:15%;
-justify-content: space-between;
-`
-const Voltar = styled.h3`
-font-family: 'Recursive';
-font-style: normal;
-font-weight: 400;
-margin-top: 5%;
-font-size: 18px;
-line-height: 22px;
-/* identical to box height */
-
-text-align: center;
-text-decoration-line: underline;
-
-color: #000000;
+justify-content: flex-end;
 `
 
 const Items = styled.div`
