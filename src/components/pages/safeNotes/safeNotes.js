@@ -21,7 +21,7 @@ export default function SafeNotes({setType,setPathBack}){
         };
 
         axios
-            .get(`http://localhost:6003/safeNote`,config)
+            .get(`https://drivenpass-nina.herokuapp.com/safeNote`,config)
             .then(({ data }) => {
                 setData(data)
                 setLength(data.length)

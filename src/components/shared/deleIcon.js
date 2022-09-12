@@ -27,7 +27,7 @@ function Delete({ id,pathFront,pathBack }) {
         },
       };
 
-      await axios.delete(`http://localhost:6003${pathBack}/${id}`, config);
+      await axios.delete(`https://drivenpass-nina.herokuapp.com/${pathBack}/${id}`, config);
       setLoading(false);
       modalDinamico();
       navigate(pathFront)

@@ -24,7 +24,7 @@ export default function CardById({ setType,setPathBack }) {
         };
 
         axios
-            .get(`http://localhost:6003/card/${id}`, config)
+            .get(`https://drivenpass-nina.herokuapp.com/card/${id}`, config)
             .then(({ data }) => {
                 setData(data)
             })

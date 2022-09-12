@@ -22,7 +22,7 @@ export default function SafeNotesById({ setType,setPathBack }) {
         };
 
         axios
-            .get(`http://localhost:6003/safeNote/${id}`, config)
+            .get(`https://drivenpass-nina.herokuapp.com/safeNote/${id}`, config)
             .then(({ data }) => {
                 setData(data)
             })

@@ -22,7 +22,7 @@ export default function Cards({setType,setPathBack}){
         };
 
         axios
-            .get(`http://localhost:6003/cards`,config)
+            .get(`https://drivenpass-nina.herokuapp.com/cards`,config)
             .then(({ data }) => {
                 setData(data)
                 setLength(data.length)

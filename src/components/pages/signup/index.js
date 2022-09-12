@@ -22,7 +22,7 @@ console.log(email,password)
     
           const body = { email, password };
     
-          await axios.post(`http://localhost:6003/sign-up`, body);
+          await axios.post(`https://drivenpass-nina.herokuapp.com/sign-up`, body);
     
           navigate("/");
         } catch (error) {

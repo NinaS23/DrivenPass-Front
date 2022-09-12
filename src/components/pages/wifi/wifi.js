@@ -23,7 +23,7 @@ export default function Wifi({setType,setPathBack}){
         };
 
         axios
-            .get(`http://localhost:6003/networks`,config)
+            .get(`https://drivenpass-nina.herokuapp.com/networks`,config)
             .then(({ data }) => {
                 setData(data)
                 setLength(data.length)

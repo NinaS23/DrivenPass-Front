@@ -22,7 +22,7 @@ export default function CredentialById({ setType,setPathBack }) {
         };
 
         axios
-            .get(`http://localhost:6003/credential/${id}`, config)
+            .get(`https://drivenpass-nina.herokuapp.com/credential/${id}`, config)
             .then(({ data }) => {
                 setData(data)
             })
