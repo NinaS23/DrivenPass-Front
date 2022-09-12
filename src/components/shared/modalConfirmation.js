@@ -30,7 +30,7 @@ function Confirmation({ pathBack,body,setDisabled,pathFront }) {
       };
       
 
-      await axios.post(`https://drivenpass-nina.herokuapp.com/${pathBack}`,body, config);
+      await axios.post(`https://drivenpass-nina.herokuapp.com${pathBack}`,body, config);
       setLoading(false);
       setDisabled(false)
       modalDinamico();
